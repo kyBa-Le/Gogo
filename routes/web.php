@@ -13,9 +13,6 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->get("/", function () {
+    return view('home');
 });
-
-$router->get("/hehe", "MyController@getHehe");
-$router->get("/home", "MyController@index");
