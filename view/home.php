@@ -1,6 +1,5 @@
 <?php
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,6 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>This is home page</h1>
+    <h1>Home page nè</h1>
 </body>
+<script>
 </html>
