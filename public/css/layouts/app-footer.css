@@ -1,0 +1,43 @@
+.app-footer {
+    background-color: var(--default-color);
+    color: var(--text-color-primary);
+    padding: var(--spacing-lg) 0;
+}
+
+.footer-header {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
+    flex-wrap: nowrap;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    flex-wrap: nowrap;
+    border-top: solid 1px var(--primary-color);
+    max-width: 1120px;
+    padding-top: var(--spacing-sm);
+    gap: var(--spacing-lg)
+}
+
+.footer-newsletter-input {
+    width: 100%; 
+    padding: 10px 100px 10px 20px;
+    box-sizing: border-box;
+    font-size: 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+  }
+  
+  /* Button */
+  .btn-secondary.email {
+    position: absolute;
+    top: 50%; 
+    right: 10px; 
+    transform: translateY(-50%); /* Canh giữa theo chiều dọc */
+    padding: 8px 15px; 
+  }
+  
