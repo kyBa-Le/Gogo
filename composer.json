@@ -1,9 +1,10 @@
 {
-    "name": "lekyba/test",
-    "description": "This is my framework",
+    "name": "lekyba/gogo",
+    "description": "this is project of team gogo",
     "autoload": {
         "psr-4": {
             "app\\":"./"
+
         }
     },
     "require": {}

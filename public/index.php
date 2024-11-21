@@ -10,4 +10,8 @@ $app->router->get('/', function () {
     echo Router::renderView("home");
 });
 
+$app->router->get("/event", function() {
+    echo Router::renderView("event");
+});
+
 $app->run();
