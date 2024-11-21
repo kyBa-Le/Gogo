@@ -40,7 +40,7 @@ class Router
             $$key = $value;
         }
         ob_start();
-        require_once __DIR__ . "/../view/$view.php";
+        require_once "view/$view.php";
         return ob_get_clean();
     }
 }
