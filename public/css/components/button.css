@@ -1,0 +1,24 @@
+.btn {
+    min-width: 44px;
+    font-size: 15px;
+    padding: 12px 21px;
+    border-radius: 200px;
+    border-width: 1px;
+    border-color: #fff;
+    border-style: solid;
+    color: #fff;
+    cursor: pointer;
+}
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn.btn-primary {
+    background-color: var(--primary-color);
+}
+
+.btn.btn-secondary{
+    border-style: none;
+    background-color: transparent;
+    color: var(--text-color-primary);
+}
