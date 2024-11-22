@@ -155,12 +155,12 @@ VALUES
 
 INSERT INTO users (email, username, password, fullname, phone, created_date) 
 VALUES 
-('john.doe@gmail.com.com', 'johndoe123', '$3curePssw0r', 'John Doe', '901234567', '2024-11-10'),
-('jane.smith@gmail.com.com', 'janesmith456', 'Password1!', 'Jane Smith', '907654321', '2024-11-11'),
-('alice.green@gmail.com.com', 'alicegreen789', 'GreeNa2024', 'Alice Green', '918765432', '2024-11-12'),
-('bob.johnson@gmail.com.com', 'bobjohnson322', 'B0bPassword', 'Bob Johnson', '918765432', '2024-11-13'),
-('emily.white@gmail.com.com', 'emilywhite567', 'W!tE1emly', 'Emily White', '908765432', '2024-11-14'),
-('michael.brown@gmail.com.com', 'mikebrown88', 'BrownM1ke#', 'Michael Brown', '912348765', '2024-11-15');
+('john.doe@gmail.com.com', 'johndoe123', '482c811da5d5b4bc6d497ffa98491e38', 'John Doe', '0901234567', '2024-11-10'),
+('jane.smith@gmail.com.com', 'janesmith456', 'fc5e038d38a57032085441e7fe7010b0', 'Jane Smith', '0907654321', '2024-11-11'),
+('alice.green@gmail.com.com', 'alicegreen789', 'e10adc3949ba59abbe56e057f20f883e', 'Alice Green', '0918765432', '2024-11-12'),
+('bob.johnson@gmail.com.com', 'bobjohnson322', 'ddac64383be2fdb7e5e9327723b8eab5', 'Bob Johnson', '0918765432', '2024-11-13'),
+('emily.white@gmail.com.com', 'emilywhite567', 'e80b5017098950fc58aad83c8c14978e', 'Emily White', '0908765432', '2024-11-14'),
+('michael.brown@gmail.com.com', 'mikebrown88', '49729e2136d4e56ef822b5f9cfdb45b4', 'Michael Brown', '0912348765', '2024-11-15');
 
 INSERT INTO reviews (detail, rating, review_date, user_id) 
 VALUES
