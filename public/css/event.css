@@ -1,4 +1,139 @@
-#test {
-    color: aquamarine;
-    background-color: bisque;
+.position-fixed {
+    z-index: 1000;
 }
+img {
+    filter: contrast(75%);
+}
+.container-fluid {
+    padding: 0;
+}
+#event-banner {
+    background-image: url("https://theoxfordmagazine.com/wp-content/uploads/abingdon-bonfire-fireworks-2020-02.jpg");
+    width: 100%;
+    height: 850px;
+    background-size: cover;
+    color: white;
+    position: relative;
+}
+#event-banner #content {
+    position: absolute;
+    top: 300px;
+    left: 300px;
+    button {
+        padding: 5px 10px;
+        background-color: transparent;
+        color: white;
+        border:1px solid white;
+        border-radius: 10px;
+    }
+    button:hover {
+        background-color: #EB662B;
+    }
+}
+#event-title {
+    color: #EB662B;
+}
+
+.container-events {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 30px;
+    place-items: center;
+}
+.event-cards {
+    text-align: center;
+}
+.event-card {
+    width: 410px;
+    height: 450px;
+}
+
+.event-card{
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    position: relative;
+    * {
+        color: white;
+    }
+    #event-bref-info {
+        position: absolute;
+        bottom: 20px;
+        left: 30px;
+    }
+    #day {
+        position: absolute;
+        left: 30px;
+        top: 20px;
+    }
+}
+a {
+    all: unset; 
+}
+a:hover {
+    cursor: pointer;
+    color: #EB662B;
+}
+#event-all-events {
+    position: relative ;
+    display: flex;
+    flex-direction: column;
+    form {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+
+}
+#events-see-more {
+    background-color: transparent;
+    border: 1px solid #EB662B;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: 20px;
+    width: 100px;
+
+}
+.carousel-item img {
+    width: 1860px;
+    height: 854px;
+}
+
+#event-carousel {
+    margin-top: 100px;
+}
+
+.carousel-item {
+    position:relative;
+    color: white;
+    #event-name {
+        position:absolute;
+        top: 100px;
+        right: 300px;
+    }
+    #description {
+        width: 30%;
+        position: absolute;
+        left: 300px;
+        bottom: 100px;
+        button {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            border: 1px solid #EB662B;
+            color: white;
+            padding: 5px 10px;
+        }
+        button:hover {
+            background-color: #EB662B;
+        }
+    }
+}
+#events-see-more:hover {
+    background-color: #EB662B;
+}
+#carouselExampleDark .carousel-item {
+    transition: transform 1s ease-in-out; /* 1 second transition with ease-in-out */
+}
+
+
