@@ -37,14 +37,6 @@
         <div class="container-fluid" id="event-all-events">
             <h3 class="ms-4"><b>Out-standing event</b></h3>
             <div class="container-events" id="event-cards" >
-                <div class="event-card" id="card-01" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxJtOpsox_DlGFD-faHfYUDW6DRqKB7RQRqA&s');">
-                    <p id="day">4 days</p>
-                    <div id="event-bref-info">
-                        <p id="place">Paris</p>
-                        <h4 id="title"><a href="/event/{id}">Centipede Tour - Guided Arizona<br>Desert Tour by ATV</a></h4>
-                        <p id="date"><?php echo date("d - m - 20y") ?></p>
-                    </div>
-                </div>
             </div>
             <form action="/event/all" method="get"><button type="submit" id="events-see-more">See more</button></form>
         </div>
@@ -53,32 +45,22 @@
         <div class="container-fluid" id="event-carousel">
             <h3 class="mb-5 ms-4">Upcoming events in <?php echo date("m/y") ?></h3>
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
+                <div class="carousel-inner" id="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="10000">
                         <img src="https://ezcloud.vn/wp-content/uploads/2024/02/tour-la-gi.webp" 
                             class="d-block w-100" alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxJtOpsox_DlGFD-faHfYUDW6DRqKB7RQRqA&s">
-                        <h1 id="event-name">MTP Tour<br>Happen in 2025</h1>
+                        <h1 id="event-name">Click to see more events<br>Happen in <?php echo date("m/y") ?></h1>
                         <div id="description">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quisquam voluptate reprehenderit ab placeat exercitationem perferendis vitae excepturi unde eos enim dolore nihil, nemo iure aperiam animi ipsam eaque blanditiis.</p>
-                            <button><b>Book now</b></button>
-                        </div>
-                    </div>
-                    <div class="carousel-item" data-bs-interval="10000">
-                        <img src="https://muinejeeptour.com/wp-content/uploads/2018/08/tour-bau-trang-Doi-cat-bay-lang-chai-suoi-tien-52.jpg" 
-                            class="d-block w-100" alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxJtOpsox_DlGFD-faHfYUDW6DRqKB7RQRqA&s">
-                        <h1 id="event-name">This is an event<br>Happen in November</h1>
-                        <div id="description">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quisquam voluptate reprehenderit ab placeat exercitationem perferendis vitae excepturi unde eos enim dolore nihil, nemo iure aperiam animi ipsam eaque blanditiis.</p>
-                            <button><b>Book now</b></button>
+                            <p>Welcome to GoGo Travel – your ultimate travel companion! Whether you're looking for adventure, relaxation, or cultural exploration, GoGo offers curated travel experiences tailored to your interests.
+                                From stunning beach resorts to thrilling mountain treks, our platform connects you to top destinations and unique activities around the world.
+                                Explore, plan, and book your dream trip with ease. Let GoGo Travel make your next journey unforgettable!.</p>
                         </div>
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>

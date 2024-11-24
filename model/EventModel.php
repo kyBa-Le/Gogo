@@ -24,9 +24,21 @@ class EventModel
         return $events;
     }
 
-    public function getEventById(int $id): array {
+    public function getEventById(int $id): array
+    {
         $sql = "SELECT * FROM {$this->table} WHERE id = {$id}";
         $result = $this->db->query($sql);
         return $result->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getEventByMonthAndYear(int $month, int $year): array
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE  MONTH(event_date)= {$month} AND YEAR(event_date)= {$year}";
+        $result = $this->db->query($sql);
+        $events = [];
+        while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            $events[] = $row;
+        }
+        return $events;
     }
 }
