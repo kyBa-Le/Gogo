@@ -1,13 +1,6 @@
-async function fetchEvents() {
-    try {
-        const response = await fetch("/api/events"); // Đợi fetch hoàn thành
-        const data = await response.json(); // Đợi JSON được parse
-        return JSON.parse(data);
-    } catch (error) {
-        console.error('Error fetching events:', error);
-    }
-}
-let events = await fetchEvents();
+import {fetchData} from "./main.js";
+
+let events = await fetchData("/api/events");
 
 // Cuộn trang khi ấn xem tour ở banner
 document.getElementById("banner-button").addEventListener("click", function() {
@@ -36,14 +29,19 @@ document.getElementById("banner-button").addEventListener("click", function() {
 function renderEventCard(event) {
     document.getElementById("event-cards").innerHTML +=
         `<div class="event-card" id="card-01" style="background-image: url('${event['image_url']}');">
+            <div class="overlay"></div> <!-- Lớp phủ tối -->
             <p id="day">4 days</p>
             <div id="event-bref-info">
-                <p id="place">${event[""]}</p>
-                <h4 id="title"><a href="/event/${event['id']}">${event['name']}</a></h4>
+                <p id="place">${event["cultural_location_id"]}</p>
+                <h4 id="title"><a href="/events/${event['id']}">${event['name']}</a></h4>
                 <p id="date">${event['event_date']}</p>
             </div>
         </div>`;
 }
+
+let currentMonth = new Date().getMonth() + 1;
+let currentYear = new Date().getFullYear();
+let  eventInMonth = await fetchData("/api/events/search?month=" + currentMonth + "&year=" + currentYear);
 
 function renderAllEventCards(events) {
     for(let i = 0; i < events.length; i++) {
@@ -52,3 +50,35 @@ function renderAllEventCards(events) {
 }
 
 renderAllEventCards(events);
+
+console.log(eventInMonth);
+// render for slider
+if (eventInMonth.length === 0) {
+    document.getElementById("carousel-inner").innerHTML +=
+        `<div class="carousel-item" data-bs-interval="10000">
+            <img src="https://community.thriveglobal.com/wp-content/uploads/2020/10/Travel.jpg" 
+                class="d-block w-100" alt="">
+            <div id="description" style="width: 100%; margin: 0; left: 0">
+                <h1 class="text-center">There are no event in ${currentMonth}, 
+                please wait for up coming event and join our tour</h1>
+            </div>
+        </div>`;
+} else {
+    for (let i = 0; i<eventInMonth.length; i++) {
+        document.getElementById("carousel-inner").innerHTML +=
+            `<div class="carousel-item" data-bs-interval="10000">
+            <img src="${eventInMonth[i]['image_url']}" 
+                class="d-block w-100" alt="${eventInMonth[i]['image_url']}">
+            <h1 id="event-name">This is ${eventInMonth[i]['name']}<br>Happen in ${currentMonth}</h1>
+            <div id="description">
+                <p>${eventInMonth[i]['description']}</p>
+                <button id="slide-book-now" data-id="${eventInMonth[i]['id']}"><b>Book now</b></button>
+            </div>
+        </div>`;
+    }
+}
+
+document.getElementById("slide-book-now").addEventListener('click', function () {
+    let id = document.getElementById("slide-book-now").getAttribute("data-id");
+    window.location.href = "/booking/" + id;
+})

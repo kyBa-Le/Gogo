@@ -33,7 +33,6 @@ img {
 #event-title {
     color: #EB662B;
 }
-
 .container-events {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -44,16 +43,16 @@ img {
 .event-cards {
     text-align: center;
 }
-.event-card {
-    width: 410px;
-    height: 450px;
-}
 
 .event-card{
+    cursor: pointer;
+    width: 410px;
+    height: 450px;
     background-position: center;
     background-size: cover;
     border-radius: 10px;
     position: relative;
+    transition: transform 0.3s ease-in-out;
     * {
         color: white;
     }
@@ -64,9 +63,14 @@ img {
     }
     #day {
         position: absolute;
-        left: 30px;
-        top: 20px;
+        width: 100%;
+        padding-top: 10%;
+        padding-left: 10%;
+        height: 20%;
     }
+}
+.event-card:hover {
+    transform: scale(1.1);
 }
 a {
     all: unset; 
@@ -133,5 +137,23 @@ a:hover {
     background-color: #EB662B;
 }
 #carouselExampleDark .carousel-item {
+    cursor: url('https://static.vecteezy.com/system/resources/previews/003/360/612/non_2x/computer-pointer-cursor-or-mouse-arrow-click-neon-style-vector.jpg'), auto;
     transition: transform 1s ease-in-out; /* 1 second transition with ease-in-out */
+}
+#carouselExampleDark .carousel-item:hover {
+    background-color: #2c3e50;
+    animation: cursorPulse 1.5s infinite ease-in-out; /* Áp dụng hiệu ứng pulse cho con trỏ */
+}
+.event-card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Tạo lớp phủ màu tối với độ mờ */
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Hiệu ứng mượt mà cho opacity */
+}
+.event-card:hover .overlay {
+    opacity: 1; /* Khi hover, lớp phủ sẽ xuất hiện */
 }
