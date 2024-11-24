@@ -33,6 +33,7 @@ $app->router->get("/events", function() {
 
 $app->router->get("/cuisines", function() {
     echo Router::renderView("cuisines");
+});
 
 $app->router->get('/events/{id}', function() {
     echo Router::renderView("eventDetail");
