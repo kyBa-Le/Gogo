@@ -8,5 +8,6 @@
 @import './layouts/index.css';
 
 /* Sections styles */
-@import './sections/index.css'
+@import './sections/index.css';
 /* Pages styles */
+@import './cusines.css';

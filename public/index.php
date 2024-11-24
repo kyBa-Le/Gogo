@@ -2,6 +2,7 @@
 require __DIR__ . "/../vendor/autoload.php";
 
 use app\controller\EventController;
+use app\controller\CuisinesController;
 use app\core\Application;
 use app\core\Router;
 
@@ -29,6 +30,10 @@ $app->router->get("/event", function() {
     echo Router::renderView("event");
 });
 
+$app->router->get("/cuisines", function() {
+    echo Router::renderView("cuisines");
+});
+
 // Đường dẫn cho API
 
 $app->router->get("/api/events", function() {
@@ -41,5 +46,8 @@ $app->router->get("/api/event/{id}", function($id) {
     $eventController->getEventById($id);
 });
 
-
+$app->router->get("/api/cuisines", function() {
+    $cuisinesController = new CuisinesController();
+    $cuisinesController->getCuisines();
+});
 $app->run();

@@ -1,7 +1,7 @@
 <footer class="app-footer">
             <div class="footer-header">
                 <p class="footer-header-text">Speak to our expert at <span style="color: var(--primary-color);">1-800-453-6744</span></p>
-                <button class="btn btn-secondary">Follow Us</button>
+                <button class="custom-btn custom-btn-secondary">Follow Us</button>
             </div>
             <div class="footer-content container">
                 <div class="footer-section footer-contact">
@@ -43,7 +43,7 @@
                             placeholder="Your email address"
                             class="footer-newsletter-input"
                           />
-                          <button type="submit" class="btn btn-secondary email">Send</button>
+                          <button type="submit" class="custom-btn custom-btn-secondary email">Send</button>
                         </div>
                       </form>
                   </div>

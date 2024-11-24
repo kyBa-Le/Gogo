@@ -21,4 +21,4 @@ class Database
     {
         return $this->pdo->query($sql);
     }
-}
+}   
