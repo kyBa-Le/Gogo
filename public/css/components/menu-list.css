@@ -6,5 +6,6 @@
 .menu-list .menu-item {
   font-size: var(--font-size-sm);
   line-height: 28px;
+  list-style-type: none;
 }
 

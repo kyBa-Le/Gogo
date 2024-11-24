@@ -18,6 +18,7 @@
 .footer-section-list > .footer-section-item {
     padding-bottom: 18px;
     white-space: nowrap;
+    list-style-type: none;
 }
 
 .footer-link {

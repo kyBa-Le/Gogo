@@ -23,6 +23,15 @@ class Router
     public function resolve() {
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
+
+        foreach ($this->routes[$method] as $pattern => $callback) {
+            $pathVariables = $this->request->getPathVariable($pattern);
+
+            if (!empty($pathVariables)) {
+                call_user_func_array($callback, $pathVariables);
+                return;
+            }
+        }
         $callback = $this->routes[$method][$path] ?? false;
         if (!$callback) {
             http_response_code(404);

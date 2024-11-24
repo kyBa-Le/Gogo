@@ -22,3 +22,19 @@
     background-color: transparent;
     color: var(--text-color-primary);
 }
+
+.hero-btn {
+    min-width: 136px;
+    min-height: 60px;
+    border-radius: 12px;
+}
+
+  /* Button */
+  .btn-secondary.email {
+    position: absolute;
+    top: 50%; 
+    right: 10px; 
+    transform: translateY(-50%); /* Canh giữa theo chiều dọc */
+    padding: 8px 15px; 
+  }
+
