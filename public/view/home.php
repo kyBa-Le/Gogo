@@ -454,5 +454,4 @@
         <?php include 'components/footer.php'; ?>
     </main>
 </body>
-
 </html>

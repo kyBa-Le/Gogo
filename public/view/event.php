@@ -27,12 +27,10 @@
                 <button id="banner-button">View Tour</button>
             </div>
         </div>
-
         <!-- Page title -->
         <h1 class="text-center pt-5" id="event-title">GOGO - EVENTS
             <h3 class="text-center pb-5">Immersed in the vibrant atmosphere</h3>
         </h1>
-
         <!-- All out-standing event -->
         <div class="container-fluid" id="event-all-events">
             <h3 class="ms-4"><b>Out-standing event</b></h3>
@@ -48,7 +46,6 @@
             </div>
             <form action="/event/all" method="get"><button type="submit" id="events-see-more">See more</button></form>
         </div>
-
         <!-- Event carousel -->
         <div class="container-fluid" id="event-carousel">
             <h3 class="mb-5 ms-4">Upcoming events in <?php echo date("m/y") ?></h3>

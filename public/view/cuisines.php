@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <title>Cuisine</title>
 </head>
-
 <body>
     <main class="pages-cusines">
         <!-- Banner -->
@@ -36,5 +34,4 @@
     </main>
     <script src="scripts/cuisines.js" type="module"></script>
 </body>
-
 </html>

@@ -33,7 +33,6 @@ $app->router->get("/event", function() {
 $app->router->get("/cuisines", function() {
     echo Router::renderView("cuisines");
 });
-
 // Đường dẫn cho API
 
 $app->router->get("/api/events", function() {
