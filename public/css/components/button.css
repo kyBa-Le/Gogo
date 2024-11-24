@@ -1,4 +1,4 @@
-.btn {
+.custom-btn {
     min-width: 44px;
     font-size: 15px;
     padding: 12px 21px;
@@ -9,16 +9,32 @@
     color: #fff;
     cursor: pointer;
 }
-.btn:hover {
+.custom-btn:hover {
     opacity: 0.8;
 }
 
-.btn.btn-primary {
+.custom-btn.custom-btn-primary {
     background-color: var(--primary-color);
 }
 
-.btn.btn-secondary{
+.custom-btn.custom-btn-secondary{
     border-style: none;
     background-color: transparent;
     color: var(--text-color-primary);
 }
+
+.hero-btn {
+    min-width: 136px;
+    min-height: 60px;
+    border-radius: 12px;
+}
+
+  /* Button */
+  .custom-btn-secondary.email {
+    position: absolute;
+    top: 50%; 
+    right: 10px; 
+    transform: translateY(-50%); 
+    padding: 8px 15px; 
+  }
+

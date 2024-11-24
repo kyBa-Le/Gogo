@@ -2,6 +2,7 @@
 require __DIR__ . "/../vendor/autoload.php";
 
 use app\controller\EventController;
+use app\controller\CuisinesController;
 use app\core\Application;
 use app\core\Request;
 use app\core\Router;
@@ -30,6 +31,9 @@ $app->router->get("/events", function() {
     echo Router::renderView("event");
 });
 
+$app->router->get("/cuisines", function() {
+    echo Router::renderView("cuisines");
+
 $app->router->get('/events/{id}', function() {
     echo Router::renderView("eventDetail");
 });
@@ -46,6 +50,11 @@ $app->router->get("/api/events/{id}", function($id) {
     $eventController->getEventById($id);
 });
 
+$app->router->get("/api/cuisines", function() {
+    $cuisinesController = new CuisinesController();
+    $cuisinesController->getCuisines();
+});
+  
 $app->router->get("/api/events/search", function() {
     $year = Request::getParam("year");
     $month = Request::getParam("month");
