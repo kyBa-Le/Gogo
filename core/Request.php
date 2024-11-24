@@ -16,14 +16,27 @@ class Request
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
 
-    // Lấy các phần của đường dẫn (path variables)
     public function getPathVariable($pattern) {
         $path = $this->getPath();
-        $regexPattern = preg_replace('/\{(\w+)}/', '([^/]+)', $pattern);
+
+        if (strpos($pattern, '{') === false) {
+            return ($path === $pattern) ? [] : [];
+        }
+
+        // Nếu mẫu có tham số động, chuyển mẫu thành regex
+        // Thay {id} thành [^/]+ để khớp với bất kỳ giá trị nào trong URL
+        $regexPattern = preg_replace('/\{(\w+)\}/', '([^/]+)', $pattern);
+
+        // Kiểm tra xem đường dẫn hiện tại có khớp với mẫu regex đã chuyển đổi không
         if (preg_match("#^{$regexPattern}$#", $path, $matches)) {
+            // Loại bỏ phần tử đầu tiên trong mảng $matches vì đó là toàn bộ URL khớp
             array_shift($matches);
+
+            // Trả về các tham số đã trích xuất
             return $matches;
         }
+
+        // Nếu không khớp, trả về mảng rỗng
         return [];
     }
 

@@ -3,6 +3,7 @@ require __DIR__ . "/../vendor/autoload.php";
 
 use app\controller\EventController;
 use app\core\Application;
+use app\core\Request;
 use app\core\Router;
 
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
@@ -25,8 +26,12 @@ $app->router->get('/', function () {
     echo Router::renderView("home");
 });
 
-$app->router->get("/event", function() {
+$app->router->get("/events", function() {
     echo Router::renderView("event");
+});
+
+$app->router->get('/events/{id}', function() {
+    echo Router::renderView("eventDetail");
 });
 
 // Đường dẫn cho API
@@ -36,10 +41,16 @@ $app->router->get("/api/events", function() {
     $eventController->getEvents();
 });
 
-$app->router->get("/api/event/{id}", function($id) {
+$app->router->get("/api/events/{id}", function($id) {
     $eventController = new EventController();
     $eventController->getEventById($id);
 });
 
+$app->router->get("/api/events/search", function() {
+    $year = Request::getParam("year");
+    $month = Request::getParam("month");
+    $eventController = new EventController();
+    $eventController->getEventByMonthAndYear($month, $year);
+});
 
 $app->run();
