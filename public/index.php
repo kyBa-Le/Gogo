@@ -40,7 +40,7 @@ $app->router->get('/events/{id}', function() {
     echo Router::renderView("eventDetail");
 });
 
-$app->router->get("/culturalLocations", function() {
+$app->router->get("/cultures", function() {
     echo Router::renderView("culturalLocation");
 });
 
