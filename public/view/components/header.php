@@ -18,9 +18,9 @@
         <nav class="header-navigation">
             <ul class="custom-menu-list">
                 <li class="custom-menu-item"><a href="/">Home</a></li>
-                <li class="custom-menu-item" onclick="location.href='/event'">Event</li>
+                <li class="custom-menu-item" onclick="location.href='/events'">Event</li>
                 <li class="custom-menu-item" onclick="location.href='/cuisines'">Cuisine</li>
-                <li class="custom-menu-item"><a href="/culture">Culture</a></li>
+                <li class="custom-menu-item" onclick="location.href='/cultures'">Culture</li>
             </ul>
         </nav>
         <div class="header-actions">
