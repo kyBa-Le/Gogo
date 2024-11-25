@@ -8,7 +8,7 @@ use PDO;
 class CulturalLocationModel 
 {
     private $db;
-    private $table = 'cultural_location';
+    private $table = 'cultural_locations';
 
     public function __construct() {
         $this->db = Application::$database;
