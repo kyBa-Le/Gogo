@@ -14,7 +14,7 @@ create table cuisines (
     description text,
     image_url nvarchar(255),
     location_id int,
-    CONSTRAINT fk_cuisines_location FOREIGN KEY (location_id) REFERENCES cultural_location(id)
+    CONSTRAINT fk_cuisines_location FOREIGN KEY (location_id) REFERENCES cultural_locations(id)
 );
 create table events (
 	id int AUTO_INCREMENT PRIMARY KEY,
@@ -23,7 +23,7 @@ create table events (
     description text,
     cultural_location_id int,
     image_url nvarchar(255),
-    CONSTRAINT fk_events_location FOREIGN KEY (cultural_location_id)  REFERENCES cultural_location(id)
+    CONSTRAINT fk_events_location FOREIGN KEY (cultural_location_id)  REFERENCES cultural_locations(id)
     
 );
 
@@ -45,7 +45,7 @@ create table events (
      price int,
      image_url nvarchar(255),
      cultural_location_id int,
-     CONSTRAINT fk_tour_location FOREIGN KEY (cultural_location_id) REFERENCES cultural_location(id) 
+     CONSTRAINT fk_tour_location FOREIGN KEY (cultural_location_id) REFERENCES cultural_locations(id) 
  );
  create table users (
      id int AUTO_INCREMENT PRIMARY KEY,
