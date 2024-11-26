@@ -44,6 +44,10 @@ $app->router->get("/cultures", function() {
     echo Router::renderView("culturalLocation");
 });
 
+$app->router->get("/cultures/{id}", function() {
+    echo Router::renderView("cultureDetail");
+});
+
 // Đường dẫn cho API
 
 $app->router->get("/api/events", function() {
@@ -74,7 +78,7 @@ $app->router->get("/api/cultural_locations", function() {
     $culturalLocationController->getCulturalLocations();
 });
 
-$app->router->get("/api/cultural_location/{id}", function($id) {
+$app->router->get("/api/cultures/{id}", function($id) {
     $culturalLocationController = new CulturalLocationController();
     $culturalLocationController->getCulturalLocationById($id);
 });
