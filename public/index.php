@@ -4,6 +4,7 @@ require __DIR__ . "/../vendor/autoload.php";
 use app\controller\EventController;
 use app\controller\CuisinesController;
 use app\controller\CulturalLocationController;
+use app\controller\ToursController;
 use app\core\Application;
 use app\core\Request;
 use app\core\Router;
@@ -44,6 +45,10 @@ $app->router->get("/cultures", function() {
     echo Router::renderView("culturalLocation");
 });
 
+
+$app->router->get("/tours", function() {
+    echo Router::renderView("search");
+});
 // Đường dẫn cho API
 
 $app->router->get("/api/events", function () {
@@ -68,12 +73,22 @@ $app->router->get("/api/events/search", function () {
     $eventController->getEventByMonthAndYear($month, $year);
 });
 
+$app->router->get("/api/tours", function () {
+    $cuisinesController = new ToursController();
+    $cuisinesController->getTours();
+});
+
+$app->router->get("/api/tours/search", function () {
+    $location = Request::getParam("location");
+    $toursController = new ToursController();
+    $toursController->getToursByLocation($location);
+});
 // culturalLocation
 $app->router->get("/api/cultural_locations", function() {
     $culturalLocationController = new CulturalLocationController();
     $culturalLocationController->getCulturalLocations();
 });
-// fix
+
 $app->router->get("/api/cultural_locations/{id}", function($id) {
     $culturalLocationController = new CulturalLocationController();
     $culturalLocationController->getCulturalLocationById($id);
