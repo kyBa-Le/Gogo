@@ -7,13 +7,14 @@
                 src="assets/images/logo.png"
                 alt="Gogo" />
         </div>
-        <form class="custom-search-form" action="/search" method="get">
+        <div class="custom-search-form">
             <input
                 type="text"
                 class="custom-search-input"
                 placeholder="Search tours by destination"
+                id="search-bar"
                 name="query" />
-        </form>
+        </div>
         <!-- Navigation -->
         <nav class="header-navigation">
             <ul class="custom-menu-list">
@@ -28,4 +29,32 @@
             <button class="custom-btn custom-btn-primary">Sign up</button>
         </div>
     </div>
+    <script>
+        // Lấy ô input
+        const input = document.getElementById('search-bar');
+
+        // Biến để kiểm tra xem ô input có đang được focus hay không
+        let isFocused = false;
+
+        // Sự kiện khi ô input được nhấn vào
+        input.addEventListener('focus', () => {
+            isFocused = true; // Đánh dấu rằng ô input đang được focus
+            console.log("Ô input đang được nhấn vào!");
+        });
+
+        // Sự kiện khi nhấn phím Enter trong ô input
+        input.addEventListener('keydown', (event) => {
+            if (isFocused && event.key === 'Enter') {
+                console.log("Phím Enter được nhấn ngay sau khi focus!");
+                console.log("Giá trị hiện tại:", input.value); // Lấy giá trị từ ô input
+                let location = input.value;
+                window.location.href = "/tours?location=" + location;
+            }
+        });
+
+        // Sự kiện khi ô input bị mất focus
+        input.addEventListener('blur', () => {
+            isFocused = false; // Đánh dấu rằng ô input không còn được focus
+        });
+    </script>
 </header>
