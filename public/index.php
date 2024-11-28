@@ -3,6 +3,7 @@ require __DIR__ . "/../vendor/autoload.php";
 
 use app\controller\EventController;
 use app\controller\CuisinesController;
+use app\controller\UserController;
 use app\core\Application;
 use app\core\Request;
 use app\core\Router;
@@ -39,6 +40,10 @@ $app->router->get('/events/{id}', function() {
     echo Router::renderView("eventDetail");
 });
 
+$app->router->get("/sign-up", function() {
+    echo Router::renderView("signUp");
+});
+
 // Đường dẫn cho API
 
 $app->router->get("/api/events", function() {
@@ -61,6 +66,13 @@ $app->router->get("/api/events/search", function() {
     $month = Request::getParam("month");
     $eventController = new EventController();
     $eventController->getEventByMonthAndYear($month, $year);
+});
+
+$app->router->post("/api/sign-up", function() {
+    $request = new Request();
+    $data = $request->getBody();
+    $userController = new UserController();
+    $userController->signUp($data);
 });
 
 $app->run();

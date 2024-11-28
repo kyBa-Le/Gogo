@@ -24,8 +24,12 @@
             </ul>
         </nav>
         <div class="header-actions">
-            <button class="custom-btn custom-btn-secondary">Sign in</button>
-            <button class="custom-btn custom-btn-primary">Sign up</button>
+            <button class="custom-btn custom-btn-secondary" onclick=" {
+              window.location.href = '/sign-in'
+            }">Sign in</button>
+            <button class="custom-btn custom-btn-primary" onclick="{
+              window.location.href = '/sign-up';
+            }">Sign up</button>
         </div>
     </div>
 </header>
