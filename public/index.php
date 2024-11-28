@@ -46,7 +46,7 @@ $app->router->get("/cultures", function() {
 });
 
 
-$app->router->get("/tours", function() {
+$app->router->get("/search", function() {
     echo Router::renderView("search");
 });
 // Đường dẫn cho API

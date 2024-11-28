@@ -23,10 +23,3 @@ let tours = await fetchData(api);
 console.log(tours);
 
 tours.forEach((tour) => renderTourCard(tour));
-
-
-
-
-
-
-        
