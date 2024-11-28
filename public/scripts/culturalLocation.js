@@ -7,7 +7,9 @@ async function fetchCulturalLocations() {
         console.error('Error fetching cultural locations:', error);
     }
 }
+
 let culturalLocations = await fetchCulturalLocations(); 
+console.log (culturalLocations);
 
 // Update hero section dynamically
 document.querySelector(".hero-img").innerHTML +=

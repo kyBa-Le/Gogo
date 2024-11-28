@@ -28,15 +28,15 @@ $app->router->get('/', function () {
     echo Router::renderView("home");
 });
 
-$app->router->get("/events", function() {
+$app->router->get("/events", function () {
     echo Router::renderView("event");
 });
 
-$app->router->get("/cuisines", function() {
+$app->router->get("/cuisines", function () {
     echo Router::renderView("cuisines");
 });
 
-$app->router->get('/events/{id}', function() {
+$app->router->get('/events/{id}', function () {
     echo Router::renderView("eventDetail");
 });
 
@@ -50,22 +50,22 @@ $app->router->get("/cultures/{id}", function() {
 
 // Đường dẫn cho API
 
-$app->router->get("/api/events", function() {
+$app->router->get("/api/events", function () {
     $eventController = new EventController();
     $eventController->getEvents();
 });
 
-$app->router->get("/api/events/{id}", function($id) {
+$app->router->get("/api/events/{id}", function ($id) {
     $eventController = new EventController();
     $eventController->getEventById($id);
 });
 
-$app->router->get("/api/cuisines", function() {
+$app->router->get("/api/cuisines", function () {
     $cuisinesController = new CuisinesController();
     $cuisinesController->getCuisines();
 });
   
-$app->router->get("/api/events/search", function() {
+$app->router->get("/api/events/search", function () {
     $year = Request::getParam("year");
     $month = Request::getParam("month");
     $eventController = new EventController();
