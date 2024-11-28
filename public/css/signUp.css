@@ -141,4 +141,43 @@ button#sign-up-button {
     border-radius: 10px;
     z-index: 1000;
 }
+.message-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+/* Tiêu đề thông báo */
+.message-box h2 {
+    color: #EB662B;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Nội dung thông báo */
+.message-box p {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* Nút */
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+.btn {
+    color: white;
+    width: 10vw;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+    background-color: #EB662B; /* Màu chủ đạo */
+}
 

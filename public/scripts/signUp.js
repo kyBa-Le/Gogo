@@ -18,7 +18,9 @@ document.getElementById("sign-up-button").addEventListener('click', async functi
     let response = await sendData("/api/sign-up", data);
 
     if (response.success === true) {
-        window.alert("Sign up success, show pop up");
+        let element = document.getElementById('successOverlay');
+        element.style.display = 'flex'
+        document.body.innerHTML = element.outerHTML;
         return;
     }
     let errors = response["errors"];

@@ -69,8 +69,17 @@
         <div class="spinner"></div>
         <p>Processing your request...</p>
     </div>
-    <div id="navigation-box" style="display: none">
-
+    <div id="successOverlay" class="content-overlay" style="display: none">
+        <div class="success-container">
+            <div class="message-box">
+                <h2>Sign up success!</h2>
+                <p>Your account has been created!</p>
+                <div class="buttons">
+                    <a href="/" class="btn home-btn">Back home</a>
+                    <a href="/sign-in" class="btn login-btn">Sign in</a>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
