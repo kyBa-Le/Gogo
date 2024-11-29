@@ -1,19 +1,12 @@
 export async function fetchData(path) {
-    showLoading(); // Hiển thị loading
     try {
-        const response = await fetch(path); // Gửi yêu cầu đến API
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return await response.json(); // Trả về dữ liệu JSON đã parse
+        const response = await fetch(path); // Đợi fetch hoàn thành
+        const data = await response.json(); // Đợi JSON được parse
+        return JSON.parse(data);
     } catch (error) {
-        console.error('Error fetching data:', error);
-        throw error; // Có thể ném lỗi hoặc xử lý khác tùy vào ứng dụng
-    } finally {
-        hideLoading(); // Đảm bảo ẩn loading trong mọi trường hợp
+        console.error('Error fetching events:', error);
     }
 }
-
 
 export async function sendData(path, data) {
     showLoading(); // Hiển thị loading
