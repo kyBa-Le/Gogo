@@ -12,7 +12,6 @@
     <?php include 'components/header.php'; ?>
     </div>
         <div class="tour-cards" id="tour-card">
-            <div class="card-tour"></div>
         </div>  
     <script src="../scripts/tours.js"type="module"></script>
 </body>
