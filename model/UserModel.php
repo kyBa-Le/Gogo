@@ -14,14 +14,10 @@ class UserModel
         $this->db = Application::$database;
     }
 
-    public function getUsers() {
-        $sql = "SELECT * FROM {$this->table}";
+    public function getUsersByEmail($email) {
+        $sql = "SELECT * FROM {$this->table} WHERE email = '$email'";
         $result = $this->db->query($sql);
-        $users = [];
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            $users[] = $row;
-        }
-        return $users;
+        return $result->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function createUser($email,

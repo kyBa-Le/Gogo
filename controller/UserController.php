@@ -12,23 +12,18 @@ class UserController
 {
     private UserModel $userModel;
     private Response  $response;
+    private $userValidation;
 
     public function __construct()
     {
         $this->userModel = new UserModel();
-    }
-
-    public function getUsers () {
-        $users = $this->userModel->getUsers();
-        $this->response = new Response(json_encode($users));
-        $this->response->addHeader('Content-Type', 'application/json');
-        $this->response->send();
+        $this->userValidation = new UserValidation();
     }
 
     public function signUp($data) {
         $emailSender = new EmailSender();
 
-        $errors = UserValidation::validateUserSignUp($data);
+        $errors = $this->userValidation->validateUserSignUp($data);
         $responseMessage = [];
         if (!empty($errors)) {
             $responseMessage['success'] = false;

@@ -18,7 +18,7 @@
     <div class="container-fluid" id="signUp-container">
         <div class="form-container d-flex justify-content-between flex-column align-items-center">
             <div class="d-flex justify-content-start">
-                <img src="assets/images/logo.png" alt="Gogo">
+                <img src="assets/images/logo.png" alt="Gogo" onclick="window.location.href='/'">
             </div>
             <div>
                 <div class="text-center">
@@ -35,9 +35,9 @@
                     <label for="password">
                             <input type="password" id="password" name="password" required placeholder="Create a password">
                     </label>
-                <label for="confirm-password">
-                    <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm the password">
-                </label>
+                    <label for="confirm-password">
+                        <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm the password">
+                    </label>
                     <label for="fullName">
                         <input type="text" name="fullName" id="fullName" required placeholder=" Enter your full name">
                     </label>
