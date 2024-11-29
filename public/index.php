@@ -3,6 +3,7 @@ require __DIR__ . "/../vendor/autoload.php";
 
 use app\controller\EventController;
 use app\controller\CuisinesController;
+use app\controller\UserController;
 use app\controller\CulturalLocationController;
 use app\controller\ToursController;
 use app\core\Application;
@@ -41,14 +42,18 @@ $app->router->get('/events/{id}', function () {
     echo Router::renderView("eventDetail");
 });
 
+$app->router->get("/sign-up", function() {
+    echo Router::renderView("signUp");
+});
+
 $app->router->get("/cultures", function() {
     echo Router::renderView("culturalLocation");
 });
 
-
 $app->router->get("/search", function() {
     echo Router::renderView("search");
 });
+
 // Đường dẫn cho API
 
 $app->router->get("/api/events", function () {
@@ -71,6 +76,13 @@ $app->router->get("/api/events/search", function () {
     $month = Request::getParam("month");
     $eventController = new EventController();
     $eventController->getEventByMonthAndYear($month, $year);
+});
+
+$app->router->post("/api/sign-up", function() {
+    $request = new Request();
+    $data = $request->getBody();
+    $userController = new UserController();
+    $userController->signUp($data);
 });
 
 $app->router->get("/api/tours", function () {
