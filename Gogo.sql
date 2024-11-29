@@ -1,7 +1,7 @@
 create database Gogo;
 use Gogo;
 
-create table cultural_location (
+create table cultural_locations (
 	id int AUTO_INCREMENT PRIMARY KEY,
 	name nvarchar(255),
     region nvarchar(255),
@@ -14,7 +14,7 @@ create table cuisines (
     description text,
     image_url nvarchar(255),
     location_id int,
-    CONSTRAINT fk_cuisines_location FOREIGN KEY (location_id) REFERENCES cultural_location(id)
+    CONSTRAINT fk_cuisines_location FOREIGN KEY (location_id) REFERENCES cultural_locations(id)
 );
 create table events (
 	id int AUTO_INCREMENT PRIMARY KEY,
@@ -23,7 +23,7 @@ create table events (
     description text,
     cultural_location_id int,
     image_url nvarchar(255),
-    CONSTRAINT fk_events_location FOREIGN KEY (cultural_location_id)  REFERENCES cultural_location(id)
+    CONSTRAINT fk_events_location FOREIGN KEY (cultural_location_id)  REFERENCES cultural_locations(id)
     
 );
 
@@ -36,7 +36,7 @@ create table events (
      CONSTRAINT fk_dishes_cuisines FOREIGN KEY (cuisines_id) REFERENCES cuisines(id)   
  );
  
- create table tour (
+ create table tours (
 	id int AUTO_INCREMENT PRIMARY KEY,
      name nvarchar(255),
      description text,
@@ -45,7 +45,7 @@ create table events (
      price int,
      image_url nvarchar(255),
      cultural_location_id int,
-     CONSTRAINT fk_tour_location FOREIGN KEY (cultural_location_id) REFERENCES cultural_location(id) 
+     CONSTRAINT fk_tour_location FOREIGN KEY (cultural_location_id) REFERENCES cultural_locations(id) 
  );
  create table users (
      id int AUTO_INCREMENT PRIMARY KEY,
@@ -66,7 +66,7 @@ create table events (
  );
 
 
-INSERT INTO cultural_location (name, region, image_url, description) VALUES
+INSERT INTO cultural_locations (name, region, image_url, description) VALUES
 ('Hà Nội', 'Northern Vietnam', 'https://owa.bestprice.vn/images/destinations/uploads/trung-tam-thanh-pho-ha-noi-603da1f235b38.jpg', 'Vietnam’s capital city blends ancient temples, colonial architecture, and a bustling Old Quarter. Iconic landmarks include Hoan Kiem Lake, the Temple of Literature, and Ho Chi Minh Mausoleum.'),
 ('Hạ Long', 'Northern Vietnam', 'https://asiaholiday.com.vn/pic/Tour/Tour%20Du%20lich%20Ha%20Long%20(5)_2261_HasThumb.jpg', 'A UNESCO World Heritage Site, Ha Long Bay is famed for its emerald waters dotted with limestone karsts and caves. Cruises through the bay are a quintessential experience.'),
 ('Sa Pa', 'Northern Vietnam', 'https://media.baobinhphuoc.com.vn/upload/news/5_2023/c29efc89b1a8554f27a79a5bf6bdf6a0.jpg', 'Nestled in the northern mountains, Sa Pa is a trekking haven with terraced rice fields, ethnic minority villages, and stunning views of Mount Fansipan.'),
@@ -140,7 +140,7 @@ INSERT INTO dishes (name, description, image_url, cuisines_id) VALUES
 ('Bánh Cuốn Hà Nội', 'Steamed rice rolls filled with minced pork, mushrooms, and herbs, topped with fried shallots and served with fish sauce.', 'https://cdn.attractionsvietnam.com/uploads/2023/12/quan-banh-cuon-hanoi.jpg', 10),
 ('Bún Riêu Cua', 'A Vietnamese noodle soup made with a crab-based broth, rice noodles, and topped with fried tofu and shrimp.', 'https://i.ytimg.com/vi/C1P1Cw9J1-I/maxresdefault.jpg', 7);
 
-INSERT INTO tour (name, description, started_date, completed_date, price, image_url, cultural_location_id) 
+INSERT INTO tours (name, description, started_date, completed_date, price, image_url, cultural_location_id) 
 VALUES 
 ('Hà Nội City Exploration', 'A 3-day tour of Hanoi, exploring the city’s rich history, culture, and famous landmarks such as the Hoàn Kiếm Lake, Old Quarter, and Temple of Literature.', '2024-11-24', '2024-11-23', 7680000, 'https://veronikasadventure.com/wp-content/uploads/2024/01/explore-the-best-of-hanoi-city-in-a-day.jpg', 1),
 ('Hạ Long Bay Adventure', 'A 2-day cruise in the stunning Hạ Long Bay, featuring boat tours, kayaking, and swimming in one of Vietnam’s most famous UNESCO World Heritage Sites.', '2024-11-25', '2024-11-26', 4320000, 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/07/86/45/53.jpg', 2),

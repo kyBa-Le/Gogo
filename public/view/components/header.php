@@ -7,13 +7,14 @@
                 src="assets/images/logo.png"
                 alt="Gogo" />
         </div>
-        <form class="custom-search-form" action="/search" method="get">
+        <div class="custom-search-form">
             <input
                 type="text"
                 class="custom-search-input"
                 placeholder="Search tours by destination"
+                id="search-bar"
                 name="query" />
-        </form>
+        </div>
         <!-- Navigation -->
         <nav class="header-navigation">
             <ul class="custom-menu-list">
@@ -28,4 +29,23 @@
             <button class="custom-btn custom-btn-primary">Sign up</button>
         </div>
     </div>
+    <script>
+        const input = document.getElementById('search-bar');
+        let isFocused = false;
+        input.addEventListener('focus', () => {
+            isFocused = true; 
+            console.log("Ô input đang được nhấn vào!");
+        });
+        input.addEventListener('keydown', (event) => {
+            if (isFocused && event.key === 'Enter') {
+                console.log("Phím Enter được nhấn ngay sau khi focus!");
+                const location = input.value;
+                console.log("Giá trị hiện tại:", input.value);
+                window.location.href = "/search?location=" + location;
+            }
+        });
+        input.addEventListener('blur', () => {
+            isFocused = false;
+        });
+    </script>
 </header>
