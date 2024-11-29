@@ -9,13 +9,14 @@ class ToursModel
 {
     private $db;
     private $table = 'tours';
+    private $sqlJoinTableWhere ;
 
     public function __construct()
     {
         $this->db = Application::$database;
     }
 
-    public function getTours(): array
+    public function getTours()
     {
         $sql = "SELECT * FROM {$this->table}";
         $result = $this->db->query($sql);
@@ -26,7 +27,7 @@ class ToursModel
         return $tours;
     }
 
-    public function getToursByLocation(string $location): array
+    private function getToursByCriteria($conditions = [])
     {
         $sql = "
             SELECT 
@@ -40,14 +41,28 @@ class ToursModel
                 cl.name AS location_name,
                 cl.region AS region
             FROM 
-            {$this->table} t
+                {$this->table} t
             JOIN 
                 cultural_locations cl 
             ON 
-                t.cultural_location_id = cl.id 
-            WHERE 
-                cl.name = '$location'
+                t.cultural_location_id = cl.id
         ";
+
+        $whereClauses = [];
+        if (isset($conditions['price'])) {
+            $whereClauses[] = "t.price >= {$conditions['price']}";
+        }
+        if (isset($conditions['date'])) {
+            $whereClauses[] = "t.started_date = '{$conditions['date']}'";
+        }
+        if (isset($conditions['location'])) {
+            $whereClauses[] = "cl.name = '{$conditions['location']}'";
+        }
+        if (!empty($whereClauses)) {
+            $sql .= " WHERE " . implode(' AND ', $whereClauses);
+        }
+
+        $sql .= " ORDER BY t.price ASC";
 
         $result = $this->db->query($sql);
         $tours = [];
@@ -56,4 +71,25 @@ class ToursModel
         }
         return $tours;
     }
+
+    public function getToursByPrice($price)
+    {
+        return $this->getToursByCriteria(['price' => $price]);
+    }
+
+    public function getToursByDate($date)
+    {
+        return $this->getToursByCriteria(['date' => $date]);
+    }
+
+    public function getToursByPriceAndDate($price, $date)
+    {
+        return $this->getToursByCriteria(['price' => $price, 'date' => $date]);
+    }
+
+    public function getToursByLocation($location)
+    {
+        return $this->getToursByCriteria(['location' => $location]);
+    }
+
 }
