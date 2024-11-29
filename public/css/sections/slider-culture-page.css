@@ -1,0 +1,14 @@
+.slider {
+    max-height: 700px;
+    margin-block: 50px;
+    background-color: #f7f8fc;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+.mySwiper {
+    width: 1000px;
+    height: 500px;
+}

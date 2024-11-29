@@ -1,0 +1,65 @@
+.more-cultural {
+    background-color: #f7f8fc;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 60px;
+}
+
+.more-cultural-grid {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.more-cultural-grid .cultural1,
+.more-cultural-grid .cultural2,
+.more-cultural-grid .cultural3,
+.more-cultural-grid .cultural4,
+.more-cultural-grid .cultural5,
+.more-cultural-grid .cultural6 {
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.more-cultural-grid .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 1s ease; 
+}
+
+.more-cultural-grid .image:hover {
+    transform: scale(1.2);
+}
+
+.more-cultural-grid .cultural1 {
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+.more-cultural-grid .cultural2 {
+    grid-column: 1/4;
+    grid-row: 2/3;
+}
+.more-cultural-grid .cultural3 {
+    grid-column: 4/10;
+    grid-row: 1/3;
+}
+.more-cultural-grid .cultural4 {
+    grid-column: 10/15;
+    grid-row: 1/2;
+}
+.more-cultural-grid .cultural5 {
+    grid-column: 10/12;
+    grid-row: 2/3;
+}
+.more-cultural-grid .cultural6 {
+    grid-column: 12/15;
+    grid-row: 2/3;
+}
+

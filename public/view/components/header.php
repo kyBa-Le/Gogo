@@ -7,20 +7,21 @@
                 src="assets/images/logo.png"
                 alt="Gogo" />
         </div>
-        <form class="custom-search-form" action="/search" method="get">
+        <div class="custom-search-form">
             <input
                 type="text"
                 class="custom-search-input"
                 placeholder="Search tours by destination"
+                id="search-bar"
                 name="query" />
-        </form>
+        </div>
         <!-- Navigation -->
         <nav class="header-navigation">
             <ul class="custom-menu-list">
                 <li class="custom-menu-item"><a href="/">Home</a></li>
-                <li class="custom-menu-item" onclick="location.href='/event'">Event</li>
+                <li class="custom-menu-item" onclick="location.href='/events'">Event</li>
                 <li class="custom-menu-item" onclick="location.href='/cuisines'">Cuisine</li>
-                <li class="custom-menu-item"><a href="/culture">Culture</a></li>
+                <li class="custom-menu-item" onclick="location.href='/cultures'">Culture</li>
             </ul>
         </nav>
         <div class="header-actions">
@@ -32,4 +33,22 @@
             }">Sign up</button>
         </div>
     </div>
+    <script>
+        const input = document.getElementById('search-bar');
+        let isFocused = false;
+        input.addEventListener('focus', () => {
+            isFocused = true; 
+            console.log("Ô input đang được nhấn vào!");
+        });
+        input.addEventListener('keydown', (event) => {
+            if (isFocused && event.key === 'Enter') {
+                console.log("Phím Enter được nhấn ngay sau khi focus!");
+                console.log("Giá trị hiện tại:", input.value);
+                window.location.href = "/search?location=" + location;
+            }
+        });
+        input.addEventListener('blur', () => {
+            isFocused = false;
+        });
+    </script>
 </header>

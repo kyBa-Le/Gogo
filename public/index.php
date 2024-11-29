@@ -4,6 +4,8 @@ require __DIR__ . "/../vendor/autoload.php";
 use app\controller\EventController;
 use app\controller\CuisinesController;
 use app\controller\UserController;
+use app\controller\CulturalLocationController;
+use app\controller\ToursController;
 use app\core\Application;
 use app\core\Request;
 use app\core\Router;
@@ -28,15 +30,15 @@ $app->router->get('/', function () {
     echo Router::renderView("home");
 });
 
-$app->router->get("/events", function() {
+$app->router->get("/events", function () {
     echo Router::renderView("event");
 });
 
-$app->router->get("/cuisines", function() {
+$app->router->get("/cuisines", function () {
     echo Router::renderView("cuisines");
 });
 
-$app->router->get('/events/{id}', function() {
+$app->router->get('/events/{id}', function () {
     echo Router::renderView("eventDetail");
 });
 
@@ -44,24 +46,32 @@ $app->router->get("/sign-up", function() {
     echo Router::renderView("signUp");
 });
 
+$app->router->get("/cultures", function() {
+    echo Router::renderView("culturalLocation");
+});
+
+$app->router->get("/search", function() {
+    echo Router::renderView("search");
+});
+
 // Đường dẫn cho API
 
-$app->router->get("/api/events", function() {
+$app->router->get("/api/events", function () {
     $eventController = new EventController();
     $eventController->getEvents();
 });
 
-$app->router->get("/api/events/{id}", function($id) {
+$app->router->get("/api/events/{id}", function ($id) {
     $eventController = new EventController();
     $eventController->getEventById($id);
 });
 
-$app->router->get("/api/cuisines", function() {
+$app->router->get("/api/cuisines", function () {
     $cuisinesController = new CuisinesController();
     $cuisinesController->getCuisines();
 });
   
-$app->router->get("/api/events/search", function() {
+$app->router->get("/api/events/search", function () {
     $year = Request::getParam("year");
     $month = Request::getParam("month");
     $eventController = new EventController();
@@ -73,6 +83,27 @@ $app->router->post("/api/sign-up", function() {
     $data = $request->getBody();
     $userController = new UserController();
     $userController->signUp($data);
+});
+
+$app->router->get("/api/tours", function () {
+    $cuisinesController = new ToursController();
+    $cuisinesController->getTours();
+});
+
+$app->router->get("/api/tours/search", function () {
+    $location = Request::getParam("location");
+    $toursController = new ToursController();
+    $toursController->getToursByLocation($location);
+});
+// culturalLocation
+$app->router->get("/api/cultural_locations", function() {
+    $culturalLocationController = new CulturalLocationController();
+    $culturalLocationController->getCulturalLocations();
+});
+
+$app->router->get("/api/cultural_locations/{id}", function($id) {
+    $culturalLocationController = new CulturalLocationController();
+    $culturalLocationController->getCulturalLocationById($id);
 });
 
 $app->run();

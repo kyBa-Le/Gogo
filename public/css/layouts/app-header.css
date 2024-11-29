@@ -10,3 +10,8 @@
     display: flex;
     gap: var(--spacing-sm);
   }
+
+.custom-menu-list .custom-menu-item:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+}
