@@ -37,6 +37,10 @@ $app->router->get("/cuisines", function () {
     echo Router::renderView("cuisines");
 });
 
+$app->router->get('/cuisines/{id}', function () {
+    echo Router::renderView("cuisinesDetail");
+});
+
 $app->router->get('/events/{id}', function () {
     echo Router::renderView("eventDetail");
 });
@@ -44,7 +48,6 @@ $app->router->get('/events/{id}', function () {
 $app->router->get("/cultures", function() {
     echo Router::renderView("culturalLocation");
 });
-
 
 $app->router->get("/search", function() {
     echo Router::renderView("search");
@@ -65,7 +68,12 @@ $app->router->get("/api/cuisines", function () {
     $cuisinesController = new CuisinesController();
     $cuisinesController->getCuisines();
 });
-  
+
+$app->router->get("/api/cuisines/{id}", function ($id) {
+    $cuisinesController = new CuisinesController();
+    $cuisinesController->getCuisinesByID($id);
+});
+
 $app->router->get("/api/events/search", function () {
     $year = Request::getParam("year");
     $month = Request::getParam("month");

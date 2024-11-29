@@ -23,4 +23,11 @@ class CuisinesModel
         }
         return $cuisines;
     }
+
+    public function getCuisinesByID(int $id): array
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE id = {$id}";
+        $result = $this->db->query($sql);
+        return $result->fetch(PDO::FETCH_ASSOC);
+    }
 }

@@ -32,17 +32,21 @@
     <script>
         const input = document.getElementById('search-bar');
         let isFocused = false;
+
         input.addEventListener('focus', () => {
-            isFocused = true; 
+            isFocused = true;
             console.log("Ô input đang được nhấn vào!");
         });
+
         input.addEventListener('keydown', (event) => {
             if (isFocused && event.key === 'Enter') {
                 console.log("Phím Enter được nhấn ngay sau khi focus!");
-                console.log("Giá trị hiện tại:", input.value);
-                window.location.href = "/search?location=" + location;
+                const location = input.value; 
+                console.log("Giá trị hiện tại:", location);
+                window.location.href = "/search?location=" + encodeURIComponent(location);
             }
         });
+
         input.addEventListener('blur', () => {
             isFocused = false;
         });
