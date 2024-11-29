@@ -71,7 +71,7 @@ $app->router->get("/api/cuisines", function () {
 
 $app->router->get("/api/cuisines/{id}", function ($id) {
     $cuisinesController = new CuisinesController();
-    $cuisinesController->getCuisinesByID($id);
+    $cuisinesController->getCuisinesById($id);
 });
 
 $app->router->get("/api/events/search", function () {

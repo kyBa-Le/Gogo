@@ -24,7 +24,7 @@ class CuisinesModel
         return $cuisines;
     }
 
-    public function getCuisinesByID(int $id): array
+    public function getCuisinesById(int $id): array
     {
         $sql = "SELECT * FROM {$this->table} WHERE id = {$id}";
         $result = $this->db->query($sql);
