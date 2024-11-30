@@ -26,10 +26,10 @@
                                     <div class="search-attribute" style="left:-41px; position:relative">Price</div>
                                     <select id="price" name="price" class="search-select" title="Select a price range" aria-label="Price selection">
                                         <option value="">Search by price</option>
-                                        <option value="1080000">1.080.000</option>
-                                        <option value="3320000">3.320.000</option>
-                                        <option value="5620000">5.620.000</option>
-                                        <option value="7799000">7.799.000</option>
+                                        <option value="1080000">1.080.000 VND</option>
+                                        <option value="3320000">3.320.000 VND</option>
+                                        <option value="5620000">5.620.000 VND</option>
+                                        <option value="7799000">7.799.000 VND</option>
                                     </select>
                                 </span>
                             </label>
