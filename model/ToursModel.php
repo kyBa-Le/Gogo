@@ -9,7 +9,6 @@ class ToursModel
 {
     private $db;
     private $table = 'tours';
-    private $sqlJoinTableWhere ;
 
     public function __construct()
     {
