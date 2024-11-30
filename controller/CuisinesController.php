@@ -16,7 +16,13 @@ class CuisinesController
 
     public function getCuisines() {
         $cuisines = $this->cuisinesModel->getCuisines();
+        $this->response = new Response(json_encode($cuisines));
+        $this->response->addHeader('Content-Type', 'application/json');
+        $this->response->send();
+    }
 
+    public function getCuisinesById($id) {
+        $cuisines = $this->cuisinesModel->getCuisinesById($id);
         $this->response = new Response(json_encode($cuisines));
         $this->response->addHeader('Content-Type', 'application/json');
         $this->response->send();

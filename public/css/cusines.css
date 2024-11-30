@@ -1,3 +1,6 @@
+* {
+    font-family: var(--font-family);
+}
 .header-include {
     position: sticky;
     width: 100%;
@@ -8,6 +11,11 @@
     width: 90%;
     margin: 0 auto;
     padding: 20px 0;
+}
+
+.title {
+    font-size: var(--font-size-md);
+    font-weight: bold;
 }
 
 .cuisine-header {
@@ -28,7 +36,7 @@
     background-image: url("../assets/images/Frame.png");
     width: 100%;
     min-height: 560px;
-    background-size: contain; 
+    background-size: cover; 
     background-repeat: no-repeat; 
     color: var(--text-color-secondary);
     display: flex;
@@ -49,7 +57,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: space-between;
     max-width: 1200px;
     margin: 20px auto;
 }
@@ -87,7 +94,6 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     background-color: var(--primary-color);
 }
-
 
 .cuisine-card img {
     width: 100%;

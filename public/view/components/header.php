@@ -25,25 +25,32 @@
             </ul>
         </nav>
         <div class="header-actions">
-            <button class="custom-btn custom-btn-secondary">Sign in</button>
-            <button class="custom-btn custom-btn-primary">Sign up</button>
+            <button class="custom-btn custom-btn-secondary" onclick=" {
+              window.location.href = '/sign-in'
+            }">Sign in</button>
+            <button class="custom-btn custom-btn-primary" onclick="{
+              window.location.href = '/sign-up';
+            }">Sign up</button>
         </div>
     </div>
     <script>
         const input = document.getElementById('search-bar');
         let isFocused = false;
+
         input.addEventListener('focus', () => {
-            isFocused = true; 
+            isFocused = true;
             console.log("Ô input đang được nhấn vào!");
         });
+
         input.addEventListener('keydown', (event) => {
             if (isFocused && event.key === 'Enter') {
                 console.log("Phím Enter được nhấn ngay sau khi focus!");
-                const location = input.value;
-                console.log("Giá trị hiện tại:", input.value);
-                window.location.href = "/search?location=" + location;
+                const location = input.value; 
+                console.log("Giá trị hiện tại:", location);
+                window.location.href = "/search?location=" + encodeURIComponent(location);
             }
         });
+
         input.addEventListener('blur', () => {
             isFocused = false;
         });

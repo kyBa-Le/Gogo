@@ -46,4 +46,28 @@ class Request
         }
         return $default;
     }
+
+    public function getBody() {
+        // Kiểm tra Content-Type của yêu cầu
+        $contentType = $_SERVER['CONTENT_TYPE'] ?? '';
+
+        if (strpos($contentType, 'application/json') !== false) {
+            // Xử lý JSON
+            $rawBody = file_get_contents('php://input');
+            $body = json_decode($rawBody, true);
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                return null; // JSON không hợp lệ
+            }
+            return $body;
+        } elseif (strpos($contentType, 'application/x-www-form-urlencoded') !== false || strpos($contentType, 'multipart/form-data') !== false) {
+            // Xử lý form HTML
+            $body = [];
+            foreach ($_POST as $key => $value) {
+                $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+            }
+            return $body;
+        }
+
+        return null; // Không hỗ trợ loại Content-Type khác
+    }
 }

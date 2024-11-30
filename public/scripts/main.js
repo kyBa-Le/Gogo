@@ -7,3 +7,33 @@ export async function fetchData(path) {
         console.error('Error fetching events:', error);
     }
 }
+
+export async function sendData(path, data) {
+    showLoading(); // Hiển thị loading
+    const response = await fetch(path, {
+        method: 'POST', // Hoặc 'PUT' nếu bạn muốn cập nhật
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data), // Chuyển đổi `data` thành chuỗi JSON
+    });
+
+    const returnData = await response.json(); // Trả về dữ liệu phản hồi
+    hideLoading(); // Ẩn loading
+    return await JSON.parse(returnData);
+}
+
+
+
+// Lấy phần tử loading
+const loadingElement = document.getElementById('loading');
+
+// Hàm hiển thị loading
+function showLoading() {
+    loadingElement.style.display = 'block';
+}
+
+// Hàm ẩn loading
+function hideLoading() {
+    loadingElement.style.display = 'none';
+}
