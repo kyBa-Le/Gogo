@@ -18,7 +18,7 @@
                 <p class="hero-description">From local escapes to far-flung adventures, find what makes you happy anytime, anywhere</p>
 
                 <div class="search-container">
-                    <form class="hero-search-form" action="/search" method="get">
+                    <form class="hero-search-form" action="/search" method="get" onsubmit="processSearchForm(event)">
                         <div class="price-search">
                             <label class="checkbox-label">
                                 <input type="checkbox" id="search-by-price" name="search-by-price" title="Search by price">
@@ -26,10 +26,10 @@
                                     <div class="search-attribute" style="left:-41px; position:relative">Price</div>
                                     <select id="price" name="price" class="search-select" title="Select a price range" aria-label="Price selection">
                                         <option value="">Search by price</option>
-                                        <option value="100">100</option>
-                                        <option value="200">200</option>
-                                        <option value="300">300</option>
-                                        <option value="400">400</option>
+                                        <option value="1080000">1.080.000 VND</option>
+                                        <option value="3320000">3.320.000 VND</option>
+                                        <option value="5620000">5.620.000 VND</option>
+                                        <option value="7799000">7.799.000 VND</option>
                                     </select>
                                 </span>
                             </label>
@@ -39,7 +39,7 @@
                                 <input type="checkbox" id="search-by-date" name="search-by-date" title="Search by date">
                                 <span>
                                     <div class="search-attribute" style="left:-41px; position:relative">When</div>
-                                    <input type="date" class="search-input" id="when" name="when" required title="Select a date" aria-label="Date selection">
+                                    <input type="date" class="search-input" id="when" name="when" title="Select a date" aria-label="Date selection">
                                 </span>
                             </label>
                         </div>
