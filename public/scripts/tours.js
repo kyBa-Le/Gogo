@@ -19,7 +19,7 @@ async function renderTourCard(tour) {
 };
 
 let api = "/api/tours/search?" + window.location.search;
-let tours = await fetchData(api);  
+let tours = await fetchData(api);
 console.log(tours);
 
 tours.forEach((tour) => renderTourCard(tour));

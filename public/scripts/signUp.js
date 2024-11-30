@@ -59,16 +59,3 @@ function confirmPassword(){
     removeAllError();
     return true;
 }
-
-// Lấy phần tử loading
-const loadingElement = document.getElementById('loading');
-
-// Hàm hiển thị loading
-function showLoading() {
-    loadingElement.style.display = 'block';
-}
-
-// Hàm ẩn loading
-function hideLoading() {
-    loadingElement.style.display = 'none';
-}

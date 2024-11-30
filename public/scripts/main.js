@@ -23,7 +23,17 @@ export async function sendData(path, data) {
     return await JSON.parse(returnData);
 }
 
+export function checkCookie(name) {
+    const cookie = getCookie(name);
+    return cookie !== undefined && cookie !== null && cookie !== "";
+}
 
+// Hàm getCookie đã đề cập ở trên
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
 
 // Lấy phần tử loading
 const loadingElement = document.getElementById('loading');

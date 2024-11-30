@@ -27,10 +27,10 @@
                 </div>
                 <form class="text-center" id="signUp-form"">
                     <label for="email">
-                        <input type="email" name="email" id="email" required placeholder=" Enter your email">
+                        <input type="email" name="email" id="email" required placeholder="Enter your email">
                     </label>
                     <label for="username">
-                        <input type="text" name="username" id="username" required placeholder=" Enter your username">
+                        <input type="text" name="username" id="username" required placeholder="Enter your username">
                     </label>
                     <label for="password">
                             <input type="password" id="password" name="password" required placeholder="Create a password">
@@ -39,10 +39,10 @@
                         <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm the password">
                     </label>
                     <label for="fullName">
-                        <input type="text" name="fullName" id="fullName" required placeholder=" Enter your full name">
+                        <input type="text" name="fullName" id="fullName" required placeholder="Enter your full name">
                     </label>
                     <label for="phone">
-                        <input type="text" name="phone" id="phone" required placeholder=" Enter your phone number">
+                        <input type="text" name="phone" id="phone" required placeholder="Enter your phone number">
                     </label>
                     <label for="agree" class="d-flex align-items-center">
                         <div style="width: 15%"></div>
@@ -65,10 +65,7 @@
             </div>
         </div>
     </div>
-    <div id="loading" style="display: none;">
-        <div class="spinner"></div>
-        <p>Processing your request...</p>
-    </div>
+    <?php require_once "components/loading.php"?>
     <div id="successOverlay" class="content-overlay" style="display: none">
         <div class="success-container">
             <div class="message-box">
