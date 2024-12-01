@@ -3,6 +3,9 @@
     font-weight: 400;
     font-style: normal;
 }
+body {
+    background-color: #FBFBEC;
+}
 .imperial-script-bigger {
     font-family: "Imperial Script", cursive;
     font-weight: 400;
@@ -53,11 +56,8 @@ img[class]:not(.brand-logo) {
     row-gap: 30px;
     place-items: center;
 }
-@media (max-width: 768px) {
-    .container-events {
-        grid-template-columns: 1fr;
-    }
-}
+
+
 .event-cards {
     text-align: center;
 }
@@ -175,4 +175,14 @@ a:hover {
 }
 .event-card:hover .overlay {
     opacity: 1; /* Khi hover, lớp phủ sẽ xuất hiện */
+}
+
+@media (max-width: 768px) {
+    .container-events {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+    .event-card {
+        width: 90vw;
+    }
 }

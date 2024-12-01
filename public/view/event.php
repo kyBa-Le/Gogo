@@ -27,7 +27,7 @@
                 <p>Starting at $987</p>
                 <h1>Let follow the upcoming events</h1>
                 <p>Enjoy your trip with Gogo website</p>
-                <button id="banner-button">View Tour</button>
+                <button id="banner-button">View Events</button>
             </div>
         </div>
         <!-- Page title -->
@@ -39,7 +39,7 @@
             <h3 class="ms-4"><b>Out-standing event</b></h3>
             <div class="container-events" id="event-cards" >
             </div>
-            <form action="/event/all" method="get"><button type="submit" id="events-see-more">See more</button></form>
+            <form><button type="button" id="events-see-more">See more</button></form>
         </div>
         <!-- Event carousel -->
         <div class="container-fluid" id="event-carousel">

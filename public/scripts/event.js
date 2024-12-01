@@ -28,7 +28,6 @@ document.getElementById("banner-button").addEventListener("click", function() {
 
 async function renderEventCard(event) {
     let location = await fetchData('/api/cultural_locations/' + event['cultural_location_id']);
-    console.log(location);
     document.getElementById("event-cards").innerHTML +=
         `<div class="event-card" id="card-01" style="background-image: url('${event['image_url']}');">
             <div class="overlay"></div> <!-- Lớp phủ tối -->
@@ -44,13 +43,13 @@ let currentMonth = new Date().getMonth() + 1;
 let currentYear = new Date().getFullYear();
 let  eventInMonth = await fetchData("/api/events/search?month=" + currentMonth + "&year=" + currentYear);
 
-function renderAllEventCards(events) {
-    for(let i = 0; i < events.length; i++) {
+function renderEventCards(events, num) {
+    for(let i = 0; i < num; i++) {
         renderEventCard(events[i]);
     }
 }
 
-renderAllEventCards(events);
+renderEventCards(events, 3);
 
 console.log(eventInMonth);
 // render for slider
@@ -79,6 +78,11 @@ if (eventInMonth.length === 0) {
         </div>`;
     }
 }
+
+document.getElementById('events-see-more').addEventListener('click', function (){
+    document.getElementById('event-cards').innerHTML = '';
+    renderEventCards(events, events.length);
+})
 
 document.getElementById("slide-book-now").addEventListener('click', function () {
     let id = document.getElementById("slide-book-now").getAttribute("data-id");
