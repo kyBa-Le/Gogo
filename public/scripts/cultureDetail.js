@@ -3,7 +3,6 @@ import {fetchData} from "./main.js";
 const apiPath = "/api" + window.location.pathname;
 let cultureDetail = await fetchData(apiPath);
 
-// Cập nhật nội dung banner
 document.getElementById("destination-section").innerHTML = 
     `<div class="banner" style="background-image: url('${cultureDetail.image_url}');">
         <div class="banner-content">
@@ -12,7 +11,6 @@ document.getElementById("destination-section").innerHTML =
         </div>
     </div>`;
 
-// Cập nhật mô tả về địa điểm
 document.getElementById("destination-section").innerHTML += 
 `<div class="description-section container">
     <p>${cultureDetail.description}</p>

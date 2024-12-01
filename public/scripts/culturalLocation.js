@@ -11,13 +11,11 @@ async function fetchCulturalLocations() {
 let culturalLocations = await fetchCulturalLocations(); 
 console.log (culturalLocations);
 
-// Update hero section dynamically
 document.querySelector(".hero-img").innerHTML +=
     `<a href="/cultures/${culturalLocations[7]['id']}" id="hero-link">
         <img src="${culturalLocations[7]['image_url']}" alt="Hero Image" id="hero-img">
     </a>`
 
-// Render a single card for the slider
 function renderCulturalLocationCard(culturalLocation) {
     document.getElementById("slider-content").innerHTML +=
         `<div class="swiper-slide card-cultural">
@@ -33,7 +31,6 @@ function renderCulturalLocationCard(culturalLocation) {
         </div>`
 }
 
-// Render all slider cards
 function renderAllCulturalLocationCards(culturalLocations) {
     for(let i = 8; i < 16; i++) {
         renderCulturalLocationCard(culturalLocations[i]);
@@ -42,7 +39,6 @@ function renderAllCulturalLocationCards(culturalLocations) {
 
 renderAllCulturalLocationCards(culturalLocations);
 
-// Render a single grid image
 function renderCulturalLocationGridImage(culturalLocationGridImage) {
     document.getElementById("more-cultural-grid").innerHTML +=
         `<div class="cultural${culturalLocationGridImage['id']}">
@@ -52,7 +48,6 @@ function renderCulturalLocationGridImage(culturalLocationGridImage) {
         </div>`
 }
 
-// Render all cultural grid images
 function renderAllCulturalLocationGridImages(culturalLocationGridImages) {
     for(let i = 0; i < 6; i++) {
         renderCulturalLocationGridImage(culturalLocationGridImages[i]);
@@ -61,7 +56,6 @@ function renderAllCulturalLocationGridImages(culturalLocationGridImages) {
 
 renderAllCulturalLocationGridImages(culturalLocations);
 
-// Khởi tạo Swiper
 new Swiper(".mySwiper", {
     slidesPerView: 3, 
     spaceBetween: 30,   
