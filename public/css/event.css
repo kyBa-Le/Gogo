@@ -14,7 +14,7 @@
     z-index: 1000;
     background-color: white;
 }
-img {
+img[class]:not(.brand-logo) {
     filter: brightness(70%);
 }
 .container-fluid {

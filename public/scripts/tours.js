@@ -39,7 +39,11 @@ if (!action) {
     loadTours();
 } else {
     let api = "/api/tours/search?" + window.location.search;
-    let tours = await fetchData(api);  
+    let tours = await fetchData(api);
+    if (tours.length === 0) {
+        document.getElementById("tour-card").innerHTML = `<p style="color: #1a1a1a">No tours found for the given criteria.</p>`;
+    }
     tours.forEach((tour) => renderTourCard(tour));
 }
+
 

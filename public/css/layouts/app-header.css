@@ -15,3 +15,6 @@
   color: var(--primary-color);
   cursor: pointer;
 }
+.brand-logo {
+    cursor: pointer;
+}
