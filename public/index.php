@@ -3,6 +3,7 @@ require __DIR__ . "/../vendor/autoload.php";
 
 use app\controller\EventController;
 use app\controller\CuisinesController;
+use app\controller\MiddleWare;
 use app\controller\UserController;
 use app\controller\CulturalLocationController;
 use app\controller\ToursController;
@@ -48,6 +49,10 @@ $app->router->get('/events/{id}', function () {
 
 $app->router->get("/sign-up", function() {
     echo Router::renderView("signUp");
+});
+
+$app->router->get("/sign-in", function() {
+    echo Router::renderView("signIn");
 });
 
 $app->router->get("/cultures", function() {
@@ -103,6 +108,11 @@ $app->router->get("/api/tours", function () {
     $cuisinesController->getTours();
 });
 
+$app->router->get('/api/is-signed-in', function () {
+    $middleWare = new MiddleWare();
+    $middleWare->getIsSignedIn();
+});
+
 $app->router->get("/api/tours/search", function () {
     $location = Request::getParam("location");
     $toursController = new ToursController();
@@ -124,6 +134,13 @@ $app->router->get("/api/cultural_locations", function() {
 $app->router->get("/api/cultures/{id}", function($id) {
     $culturalLocationController = new CulturalLocationController();
     $culturalLocationController->getCulturalLocationById($id);
+});
+
+$app->router->post("/api/sign-in", function() {
+    $request = new Request();
+    $data = $request->getBody();
+    $userController = new UserController();
+    $userController->signIn($data);
 });
 
 $app->run();

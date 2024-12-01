@@ -13,7 +13,7 @@ class UserValidation
         $errors = [];
         $this->model = new UserModel();
         $isExistEmail =$this->model->getUsersByEmail($requestSignUp['email']);
-        if($isExistEmail !== false) {
+        if(count($isExistEmail) > 0) {
             $errors['email'] = "Already exist, please sign in!";
         }
 
