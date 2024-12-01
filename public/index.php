@@ -114,7 +114,14 @@ $app->router->get("/api/tours/search", function () {
     $toursController = new ToursController();
     $toursController->getToursByLocation($location);
 });
-// culturalLocation
+
+$app->router->get("/api/tours/filter", function () {
+    $price = Request::getParam("price");
+    $date = Request::getParam("when");
+    $toursController = new ToursController();
+    $toursController->filterTours($price, $date);
+});
+
 $app->router->get("/api/cultural_locations", function() {
     $culturalLocationController = new CulturalLocationController();
     $culturalLocationController->getCulturalLocations();
