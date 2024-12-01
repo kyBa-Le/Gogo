@@ -31,4 +31,11 @@ class UserModel
         VALUES ('$email', '$username', '$passwordHashed', '$fullName', '$phone', '$created_date')";
         $this->db->query($sql);
     }
+
+    public function getUserByEmailAndPassword($email, $password) {
+        $passwordHashed = md5($password);
+        $sql = "SELECT * FROM {$this->table} WHERE email = '$email' AND password = '$passwordHashed'";
+        $result = $this->db->query($sql);
+        return $result->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
