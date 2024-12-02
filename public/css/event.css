@@ -1,8 +1,24 @@
-.position-fixed {
-    z-index: 1000;
+.imperial-script-regular {
+    font-family: "Imperial Script", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
-img {
-    filter: contrast(75%);
+body {
+    background-color: #FBFBEC;
+}
+.imperial-script-bigger {
+    font-family: "Imperial Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: xxx-large;
+}
+
+#header-place {
+    z-index: 1000;
+    background-color: white;
+}
+img[class]:not(.brand-logo) {
+    filter: brightness(70%);
 }
 .container-fluid {
     padding: 0;
@@ -35,18 +51,20 @@ img {
 }
 .container-events {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     column-gap: 30px;
     row-gap: 30px;
     place-items: center;
 }
+
+
 .event-cards {
     text-align: center;
 }
 
 .event-card{
     cursor: pointer;
-    width: 410px;
+    width: 31vw;
     height: 450px;
     background-position: center;
     background-size: cover;
@@ -153,7 +171,18 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.4); /* Tạo lớp phủ màu tối với độ mờ */
     opacity: 0;
     transition: opacity 0.3s ease; /* Hiệu ứng mượt mà cho opacity */
+    border-radius: 10px;
 }
 .event-card:hover .overlay {
     opacity: 1; /* Khi hover, lớp phủ sẽ xuất hiện */
+}
+
+@media (max-width: 768px) {
+    .container-events {
+        grid-template-columns: 1fr;
+        column-gap: 0;
+    }
+    .event-card {
+        width: 90vw;
+    }
 }
