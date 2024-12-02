@@ -59,7 +59,7 @@ $app->router->get("/cultures", function() {
     echo Router::renderView("culturalLocation");
 });
 
-$app->router->get("/cultures/{id}", function() {
+$app->router->get("/cultural_locations/{id}", function() {
     echo Router::renderView("cultureDetail");
 });
 
@@ -131,7 +131,7 @@ $app->router->get("/api/cultural_locations", function() {
     $culturalLocationController->getCulturalLocations();
 });
 
-$app->router->get("/api/cultures/{id}", function($id) {
+$app->router->get("/api/cultural_locations/{id}", function($id) {
     $culturalLocationController = new CulturalLocationController();
     $culturalLocationController->getCulturalLocationById($id);
 });

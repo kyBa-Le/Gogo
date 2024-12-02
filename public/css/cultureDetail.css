@@ -23,3 +23,55 @@
     padding: 2rem;
     line-height: 1.6;
 }
+
+.culture-description {
+    margin-block: 50px;
+}
+
+#culture-description {
+    background-color: #FEF7F4;
+    width: 90vw;
+    min-height: 40vh;
+    align-items: center;
+    border-radius: 50px;
+}
+#culture-description * {
+    margin-left: 10%;
+    height: 50px;
+    width: 80%;
+    line-height: 50px;
+}
+
+#culture-container {
+    position: relative;
+}
+
+#booking-section {
+    background-color: #EB662B;
+    height: 20vh;
+    border-radius: 20px;
+    margin-bottom: 100px;
+    align-items: center !important;
+}
+
+#culture-book-now {
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+    color: #EB662B;
+    margin-right: 50px;
+}
+
+.message {
+    margin-left: 50px;
+}
+
+#culture-book-now:hover {
+    color: white;
+    background-color: #EB662B;
+    font-weight: bold;
+}
+
+#description {
+    font-style: italic;
+}

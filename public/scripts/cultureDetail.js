@@ -12,6 +12,10 @@ document.getElementById("destination-section").innerHTML =
     </div>`;
 
 document.getElementById("destination-section").innerHTML += 
-`<div class="description-section container">
-    <p>${cultureDetail.description}</p>
-</div>`;
+    `<div class="d-flex justify-content-center culture-description">
+        <div class="container-fluid" id="culture-description">
+            <p>Location name: ${cultureDetail["name"]}</p>
+            <p>Region: ${cultureDetail['region']}</p>
+            <p id="description">"${cultureDetail["description"]}"</p>
+        </div>
+    </div>`;
