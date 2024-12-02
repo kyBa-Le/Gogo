@@ -59,6 +59,10 @@ $app->router->get("/cultures", function() {
     echo Router::renderView("culturalLocation");
 });
 
+$app->router->get("/cultural_locations/{id}", function() {
+    echo Router::renderView("cultureDetail");
+});
+
 $app->router->get("/search", function() {
     echo Router::renderView("search");
 });
