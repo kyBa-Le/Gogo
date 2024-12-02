@@ -23,7 +23,7 @@
     </div>
     <div class="container d-flex justify-content-between align-items-center" id="booking-section">
         <p class="fw-bold" style="color: white">Let's join us to get more joyful moment</p>
-        <button id="event-book-now">Book now</button>
+        <button id="event-book-now">Find tour</button>
     </div>
 
     <!--  Footer  -->

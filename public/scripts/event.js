@@ -26,13 +26,13 @@ document.getElementById("banner-button").addEventListener("click", function() {
     requestAnimationFrame(easeInOut);
 });
 
-function renderEventCard(event) {
+async function renderEventCard(event) {
+    let location = await fetchData('/api/cultural_locations/' + event['cultural_location_id']);
     document.getElementById("event-cards").innerHTML +=
         `<div class="event-card" id="card-01" style="background-image: url('${event['image_url']}');">
             <div class="overlay"></div> <!-- Lớp phủ tối -->
-            <p id="day">4 days</p>
             <div id="event-bref-info">
-                <p id="place">${event["cultural_location_id"]}</p>
+                <p id="place">${location['name']} - ${location['region']}</p>
                 <h4 id="title"><a href="/events/${event['id']}">${event['name']}</a></h4>
                 <p id="date">${event['event_date']}</p>
             </div>
@@ -43,24 +43,25 @@ let currentMonth = new Date().getMonth() + 1;
 let currentYear = new Date().getFullYear();
 let  eventInMonth = await fetchData("/api/events/search?month=" + currentMonth + "&year=" + currentYear);
 
-function renderAllEventCards(events) {
-    for(let i = 0; i < events.length; i++) {
+function renderEventCards(events, num) {
+    for(let i = 0; i < num; i++) {
         renderEventCard(events[i]);
     }
 }
 
-renderAllEventCards(events);
+renderEventCards(events, 3);
 
 console.log(eventInMonth);
 // render for slider
 if (eventInMonth.length === 0) {
     document.getElementById("carousel-inner").innerHTML +=
         `<div class="carousel-item" data-bs-interval="10000">
-            <img src="https://community.thriveglobal.com/wp-content/uploads/2020/10/Travel.jpg" 
+            <img src="https://static.vinwonders.com/production/Vietnam-travel-from-India-1.jpg" 
                 class="d-block w-100" alt="">
+            <h1 class="position-absolute top-50 start-50 translate-middle text-white p-3">Coming soon</h1>
             <div id="description" style="width: 100%; margin: 0; left: 0">
-                <h1 class="text-center">There are no event in ${currentMonth}, 
-                please wait for up coming event and join our tour</h1>
+                <h1 class="text-center imperial-script-bigger">There are no event in ${currentMonth}, 
+                please wait for upcoming event and join our tour</h1>
             </div>
         </div>`;
 } else {
@@ -77,6 +78,11 @@ if (eventInMonth.length === 0) {
         </div>`;
     }
 }
+
+document.getElementById('events-see-more').addEventListener('click', function (){
+    document.getElementById('event-cards').innerHTML = '';
+    renderEventCards(events, events.length);
+})
 
 document.getElementById("slide-book-now").addEventListener('click', function () {
     let id = document.getElementById("slide-book-now").getAttribute("data-id");

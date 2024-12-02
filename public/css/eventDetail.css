@@ -8,18 +8,20 @@
 }
 
 [class*="container"], #event-image {
-    margin-bottom: 20vh;
+    margin-bottom: 10vh;
 }
 #event-image {
-    width: 90vw;
+    filter: brightness(90%);
+    width: 95vw;
     height: 100vh;
     background-position: center;
     background-size: cover;
+    border-radius: 10px;
 }
 #event-description {
     background-color: #FEF7F4;
     width: 90vw;
-    height: 50vh;
+    min-height: 40vh;
     align-items: center;
     border-radius: 50px;
 }
@@ -32,14 +34,6 @@
 
 #event-container {
     position: relative;
-    #event-title {
-        position: absolute;
-        top: 5%;
-        right: 5%;
-        color: white;
-        font-weight: bold;
-        width: 30%;
-    }
 }
 
 #booking-section {

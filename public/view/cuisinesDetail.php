@@ -7,6 +7,7 @@
     <title>Cusines detail</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/cuisinesDetail.css">
+    <base href="/">
 </head>
 
 <body>
