@@ -5,7 +5,7 @@
             <img
                 class="brand-logo"
                 src="assets/images/logo.png"
-                alt="Gogo" />
+                alt="Gogo" onclick="window.location.href='/'" />
         </div>
         <div class="custom-search-form">
             <input
