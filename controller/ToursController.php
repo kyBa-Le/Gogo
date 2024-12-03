@@ -48,6 +48,12 @@ class  ToursController
         $this->response = new Response(json_encode($tours));
         $this->response->addHeader('Content-Type', 'application/json');
         $this->response->send();
-    }       
+    }
+
+    public function getTourForEvent($dateInclude, $locationId) {
+        $tours = $this->toursModel->getTourForEvent($dateInclude, $locationId);
+        $this->response = new Response(json_encode($tours));
+        $this->response->addHeader('Content-Type', 'application/json');
+        $this->response->send();
+    }
 }
-?>  

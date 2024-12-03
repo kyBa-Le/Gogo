@@ -18,32 +18,23 @@ async function renderTourCard(tour) {
         </div>`;
 }
 
-async function loadTours() {
-    let api = "/api/tours/filter" + window.location.search;
-    try {
-        const tours = await fetchData(api);
-
+function loadTours(tours) {
         if (tours.length > 0) {
             tours.forEach((tour) => renderTourCard(tour));
         } else {
             document.getElementById("tour-card").innerHTML = `<p>No tours found for the given criteria.</p>`;
         }
-    } catch (error) {
-        console.error("Error fetching tours:", error);
-        document.getElementById("tour-card").innerHTML = `<p>An error occurred while fetching tours.</p>`;
-    }
 }
 
-const action = new URLSearchParams(window.location.search).has('location');
-if (!action) {
-    loadTours();
+const action = new URLSearchParams(window.location.search).has('filter');
+let api;
+if (action) {
+    api = "/api/tours/filter" + window.location.search;
 } else {
-    let api = "/api/tours/search?" + window.location.search;
-    let tours = await fetchData(api);
-    if (tours.length === 0) {
-        document.getElementById("tour-card").innerHTML = `<p style="color: #1a1a1a">No tours found for the given criteria.</p>`;
-    }
-    tours.forEach((tour) => renderTourCard(tour));
+    api = "/api/tours/search" + window.location.search;
 }
+let tours = await fetchData(api);
+loadTours(tours);
+
 
 

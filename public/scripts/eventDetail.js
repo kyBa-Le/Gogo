@@ -18,5 +18,5 @@ document.getElementById("event-container").innerHTML +=
         </div>
     </div>`;
 document.getElementById("event-book-now").addEventListener('click', function (){
-    window.location.href = '/search?date=' + event['event_date'] + '&location=' +  location['id'];
+    window.location.href = '/search?date-include=' + event['event_date'] + '&location-id=' +  location['id'];
 })
