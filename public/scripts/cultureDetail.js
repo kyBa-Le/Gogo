@@ -19,3 +19,7 @@ document.getElementById("destination-section").innerHTML +=
             <p id="description">"${cultureDetail["description"]}"</p>
         </div>
     </div>`;
+
+document.getElementById("culture-book-now").addEventListener('click', function (){
+    window.location.href = '/search?location-id='+ cultureDetail['id'];
+})

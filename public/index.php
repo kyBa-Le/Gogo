@@ -143,6 +143,8 @@ $app->router->get("/api/cultural_locations", function() {
 $app->router->get("/api/cultural_locations/{id}", function($id) {
     $culturalLocationController = new CulturalLocationController();
     $culturalLocationController->getCulturalLocationById($id);
+    $cuisinesController = new CuisinesController();
+    $cuisinesController->getCuisinesByLocationId($id);
 });
 
 $app->router->post("/api/sign-in", function() {
