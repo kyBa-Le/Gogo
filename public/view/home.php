@@ -20,7 +20,7 @@
                 <div class="search-container">
                     <form class="hero-search-form" action="/search" method="get" onsubmit="processSearchForm(event)">
                         <div class="price-search">
-                            <label class="checkbox-label">
+                            <label class="checkbox-label" for="search-by-price">
                                 <input type="checkbox" id="search-by-price" name="filter" title="Search by price">
                                 <span>
                                     <div class="search-attribute" style="left:-41px; position:relative">Price</div>
@@ -35,7 +35,7 @@
                             </label>
                         </div>
                         <div class="when-search">
-                            <label class="checkbox-label">
+                            <label class="checkbox-label" for="search-by-date">
                                 <input type="checkbox" id="search-by-date" name="filter" title="Search by date">
                                 <span>
                                     <div class="search-attribute" style="left:-41px; position:relative">When</div>

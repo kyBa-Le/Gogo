@@ -22,7 +22,8 @@ function loadTours(tours) {
         if (tours.length > 0) {
             tours.forEach((tour) => renderTourCard(tour));
         } else {
-            document.getElementById("tour-card").innerHTML = `<p>No tours found for the given criteria.</p>`;
+            document.getElementById("tour-card").innerHTML = `<img src="https://img.freepik.com/premium-vector/vector-illustration-about-concept-no-items-found-no-results-found_675567-6604.jpg?semt=ais_hybrid">`;
+            document.body.innerHTML += `<div class="container-fluid d-flex justify-content-center"><p> No tour found! Please back to <a href="/">Home page</a></p></div>`;
         }
 }
 
