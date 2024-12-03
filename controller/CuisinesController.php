@@ -27,12 +27,5 @@ class CuisinesController
         $this->response->addHeader('Content-Type', 'application/json');
         $this->response->send();
     }
-
-    public function getCuisinesByLocationId($location_id) {
-        $cuisines = $this->cuisinesModel->getCuisinesByLocationId($location_id);
-        $this->response = new Response(json_encode($cuisines));
-        $this->response->addHeader('Content-Type', 'application/json');
-        $this->response->send();
-    }
 }
 ?>
