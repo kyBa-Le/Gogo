@@ -46,6 +46,7 @@
                         <button type="submit" class="custom-btn custom-btn-primary hero-btn" title="Search for tours">Search</button>
                     </form>
                 </div>
+
             </div>
         </section>
 
