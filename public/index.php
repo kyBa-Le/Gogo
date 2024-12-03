@@ -116,7 +116,16 @@ $app->router->get('/api/is-signed-in', function () {
 $app->router->get("/api/tours/search", function () {
     $location = Request::getParam("location");
     $toursController = new ToursController();
-    $toursController->getToursByLocation($location);
+    if($location !== null) {
+        $toursController->getToursByLocation($location);
+    } else {
+        $dateInclude = Request::getParam("date-include");
+        $locationId = Request::getParam("location-id");
+//        var_dump($locationId);
+//        echo "Good job";
+        $toursController->getTourForEvent($dateInclude, $locationId);
+    }
+
 });
 
 $app->router->get("/api/tours/filter", function () {

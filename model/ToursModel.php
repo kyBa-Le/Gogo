@@ -57,6 +57,12 @@ class ToursModel
         if (isset($conditions['location'])) {
             $whereClauses[] = "cl.name = '{$conditions['location']}'";
         }
+        if (isset($conditions['date_include'])) {
+            $whereClauses[] = "t.completed_date >= '{$conditions['date_include']}' AND t.started_date <= '{$conditions['date_include']}'";
+        }
+        if (isset($conditions['location_id'])) {
+            $whereClauses[] = "cl.id = '{$conditions['location_id']}'";
+        }
         if (!empty($whereClauses)) {
             $sql .= " WHERE " . implode(' AND ', $whereClauses);
         }
@@ -89,6 +95,10 @@ class ToursModel
     public function getToursByLocation($location)
     {
         return $this->getToursByCriteria(['location' => $location]);
+    }
+
+    public function getTourForEvent($dateInclude, $locationId) {
+        return $this->getToursByCriteria(['date_include' => $dateInclude, 'location_id' => $locationId]);
     }
 
 }
