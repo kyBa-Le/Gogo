@@ -16,7 +16,7 @@
 <body>
    <main>
         <!-- Header -->
-        <div class="position-fixed container-fluid">
+        <div id="header-place">
             <?php require_once "view/components/header.php" ?>
         </div>
 
