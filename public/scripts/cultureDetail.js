@@ -5,6 +5,7 @@ let cultureDetail = await fetchData(apiPath);
 
 document.getElementById("destination-section").innerHTML = 
     `<div class="banner" style="background-image: url('${cultureDetail.image_url}');">
+        <div class="banner-overlay"></div>
         <div class="banner-content">
             <h1 class="display-4 fw-bold title">${cultureDetail.name}</h1>
             <p class="fst-italic">${cultureDetail.region}</p>
