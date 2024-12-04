@@ -65,7 +65,6 @@ create table events (
      CONSTRAINT fk_reviews_users FOREIGN KEY (user_id) REFERENCES users(id)
  );
 
-
 INSERT INTO cultural_locations (name, region, image_url, description) VALUES
 ("Ha Noi", "Northern Vietnam", "https://owa.bestprice.vn/images/destinations/uploads/trung-tam-thanh-pho-ha-noi-603da1f235b38.jpg", "Vietnam\'s capital city blends ancient temples, colonial architecture, and a bustling Old Quarter. Iconic landmarks include Hoan Kiem Lake, the Temple of Literature, and Ho Chi Minh Mausoleum."),
 ("Ha Long", "Northern Vietnam", "https://asiaholiday.com.vn/pic/Tour/Tour%20Du%20lich%20Ha%20Long%20(5)_2261_HasThumb.jpg", "A UNESCO World Heritage Site, Ha Long Bay is famed for its emerald waters dotted with limestone karsts and caves. Cruises through the bay are a quintessential experience."),
@@ -86,8 +85,6 @@ INSERT INTO cultural_locations (name, region, image_url, description) VALUES
 ("Phu Quoc", "Southern Vietnam", "https://ik.imagekit.io/tvlk/blog/2024/08/thoi-tiet-phu-quoc-7.jpg?tr=dpr-2,w-675", "Known as Pearl Island, Phu Quoc boasts white-sand beaches, lush national parks, and vibrant night markets. It\'s ideal for luxury resorts and adventurous activities like snorkeling and trekking."),
 ("Can Tho", "Southern Vietnam", "https://vnexplores.vn/uploads/0000/6/2024/09/01/cantho.jpg", "The heart of the Mekong Delta, Can Tho is famous for its floating markets like Cai Rang, where you can shop on boats and experience river life. The region is also rich in lush orchards and rural charm."),
 ("Chau Doc", "Southern Vietnam", "https://cdn.tgdd.vn/Files/2022/03/29/1422960/kinh-nghiem-du-lich-chau-doc-tat-tan-tat-tu-a-z-202203292333393564.jpg", "Located near the Cambodian border, Chau Doc is a cultural melting pot. It\'s known for Sam Mountain, Tra Su Cajuput Forest, and vibrant floating villages.");
-
-
 
 INSERT INTO cuisines (name, description, image_url, location_id) VALUES
 ("Pho", "A famous Vietnamese noodle soup made with a flavorful broth, rice noodles, herbs, and typically beef (pho bo) or chicken (pho ga). It\'s often served with fresh herbs, bean sprouts, lime, and chili on the side.", "https://dienmaynewsun.com/wp-content/uploads/2019/08/cong-thuc-nuoc-dung-pho.webp", 1),
@@ -125,7 +122,6 @@ INSERT INTO events (name, event_date, description, cultural_location_id, image_u
 ("Fish Worship Festival", "2024-03-01", "A festival held by fishermen in central Vietnam, praying for a bountiful catch, good health, and peaceful seas.", 6, "https://baokhanhhoa.vn/file/e7837c02857c8ca30185a8c39b582c03/dataimages/201905/original/images5362312_caungu_3.jpg"),
 ("Mid-Autumn Festival", "2024-09-15", "A children\'s festival celebrated on the 15th day of the 8th lunar month, with lanterns, mooncakes, and traditional games.", 1, "https://images.vietnamtourism.gov.vn/vn/images/Quatrungthu.jpg");
 
-
 INSERT INTO dishes (name, description, image_url, cuisines_id) VALUES
 ("Pho Bo", "A Vietnamese beef noodle soup served with rice noodles in a rich, flavorful broth, typically garnished with herbs, bean sprouts, and lime.", "https://duonggiahotel.vn/wp-content/uploads/2023/09/quan-pho-da-nang.jpg", 1),
 ("Banh Mi Thit Nuong", "A Vietnamese sandwich with grilled pork, pickled vegetables, and cilantro in a French baguette.", "https://kvi.vn/Uploads/786/images/file_restaurant_photo_nfos_16608-a5edadfe-220818150324.jpg", 2),
@@ -141,7 +137,6 @@ INSERT INTO dishes (name, description, image_url, cuisines_id) VALUES
 ("Cha Ca La Vong", "A famous Hanoi dish with grilled fish served with vermicelli, fresh herbs, and a turmeric-based sauce.", "https://icdn.24h.com.vn/upload/4-2022/images/2022-12-01/1669861237-che1baa3cc3a1lc483ng-1669563905610-166956390586391225552-width680height454.jpg", 15),
 ("Banh Cuon Ha Noi", "Steamed rice rolls filled with minced pork, mushrooms, and herbs, topped with fried shallots and served with fish sauce.", "https://cdn.attractionsvietnam.com/uploads/2023/12/quan-banh-cuon-hanoi.jpg", 10),
 ("Bun Rieu Cua", "A Vietnamese noodle soup made with a crab-based broth, rice noodles, and topped with fried tofu and shrimp.", "https://i.ytimg.com/vi/C1P1Cw9J1-I/maxresdefault.jpg", 7);
-
 
 INSERT INTO tours (name, description, started_date, completed_date, price, image_url, cultural_location_id) VALUES 
 ("Hanoi City Exploration", "A 3-day tour exploring Hanoi\'s rich history, culture, and landmarks such as Hoan Kiem Lake, the Old Quarter, and the Temple of Literature.", "2024-11-20", "2024-11-23", 6800000, "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/33/f7/12/caption.jpg?w=1200&h=700&s=1", 1),
