@@ -37,6 +37,6 @@ class Response
             header("$key: $value");
         }
 
-        echo json_encode($this->data); // Hoặc bất kỳ định dạng nào khác
+        echo ($this->data); // Hoặc bất kỳ định dạng nào khác
     }
 }
