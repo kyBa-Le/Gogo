@@ -47,6 +47,7 @@ create table events (
      cultural_location_id int,
      CONSTRAINT fk_tour_location FOREIGN KEY (cultural_location_id) REFERENCES cultural_locations(id) 
  );
+
  create table users (
      id int AUTO_INCREMENT PRIMARY KEY,
      email nvarchar(255),
@@ -56,6 +57,7 @@ create table events (
      phone nvarchar(15),
      created_date date
  );
+
  create table reviews (
      id int AUTO_INCREMENT PRIMARY KEY,
      detail text,
