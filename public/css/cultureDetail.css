@@ -54,13 +54,11 @@
 
 #culture-description {
     width: 90vw;
-    min-height: 40vh;
     align-items: center;
 }
 
 #culture-description * {
     margin-left: 10%;
-    height: 50px;
     width: 80%;
     line-height: 50px;
 }
@@ -93,8 +91,4 @@
     color: white;
     background-color: #EB662B;
     font-weight: bold;
-}
-
-#description {
-    font-style: italic;
 }
