@@ -1,0 +1,22 @@
+#tour-details-container img {
+    width: 100%;
+    height: auto;
+}
+#tour-details-container {
+    display: block;
+}
+.tour-information {
+    background-color: #FEF7F4;
+    box-sizing: border-box;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+#book-now {
+    background-color: #EB662B;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+}

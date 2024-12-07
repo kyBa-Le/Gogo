@@ -2,7 +2,7 @@ async function fetchCuisines() {
     try {
         const response = await fetch("/api/cuisines"); // Đợi fetch hoàn thành
         const data = await response.json(); // Đợi JSON được parse
-        return JSON.parse(data);
+        return (data);
     } catch (error) {
         console.error('Error fetching Cuisines:', error);
     }
