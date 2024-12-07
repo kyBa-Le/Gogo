@@ -15,6 +15,6 @@
     </div>
         <div class="tour-cards" id="tour-card">
         </div>  
-    <script src="../scripts/tours.js"type="module"></script>
+    <script src="../scripts/tours.js" type="module"></script>
 </body>
 </html>

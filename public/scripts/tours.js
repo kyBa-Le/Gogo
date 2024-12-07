@@ -14,7 +14,7 @@ async function renderTourCard(tour) {
             </div>
             <p class="tour-price">Price: ${tour.price} VND</p>
             <p class="tour-location">${tour.location_name} - ${tour.region}</p>
-            <a href="/tour/${tour.id}" class="tour-link">View Details</a>
+            <a href="/tours/${tour.id}" class="tour-link">View Details</a>
         </div>`;
 }
 

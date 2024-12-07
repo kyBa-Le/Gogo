@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . "/../vendor/autoload.php";
 
+use app\controller\BookingController;
 use app\controller\EventController;
 use app\controller\CuisinesController;
 use app\controller\MiddleWare;
@@ -67,11 +68,24 @@ $app->router->get("/search", function() {
     echo Router::renderView("search");
 });
 
+$app->router->get('/booking', function () {
+    echo Router::renderView("booking");
+});
+
+$app->router->get("/tours/{id}", function() {
+    echo Router::renderView("tourDetails");
+});
+
+$app->router->get('/licence', function () {
+    echo Router::renderView("licence");
+});
+
 $app->router->get("/profile", function() {
     echo Router::renderView("profile");
 });
 
 // Đường dẫn cho API
+
 $app->router->get("/api/events", function () {
     $eventController = new EventController();
     $eventController->getEvents();
@@ -128,6 +142,7 @@ $app->router->get("/api/tours/search", function () {
 //        echo "Good job";
         $toursController->getTourForEvent($dateInclude, $locationId);
     }
+
 });
 
 $app->router->get("/api/tours/filter", function () {
@@ -152,6 +167,16 @@ $app->router->post("/api/sign-in", function() {
     $data = $request->getBody();
     $userController = new UserController();
     $userController->signIn($data);
+});
+
+$app->router->get('/api/users/bookings', function () {
+    $bookingController = new BookingController();
+    $bookingController->getBookingsForUser();
+});
+
+$app->router->get('/api/tours/{id}', function ($id) {
+    $tourController = new ToursController();
+    $tourController->getTourById($id);
 });
 
 $app->router->get('/api/user', function () {

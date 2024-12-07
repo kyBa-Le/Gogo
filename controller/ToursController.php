@@ -56,4 +56,12 @@ class  ToursController
         $this->response->addHeader('Content-Type', 'application/json');
         $this->response->send();
     }
+
+    public function getTourById($id)
+    {
+        $tour = $this->toursModel->getTourById($id);
+        $this->response = new Response(json_encode($tour));
+        $this->response->addHeader('Content-Type', 'application/json');
+        $this->response->send();
+    }
 }
