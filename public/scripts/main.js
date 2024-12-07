@@ -2,7 +2,7 @@ export async function fetchData(path) {
     try {
         const response = await fetch(path); // Đợi fetch hoàn thành
         const data = await response.json(); // Đợi JSON được parse
-        return JSON.parse(data);
+        return (data);
     } catch (error) {
         console.error('Error fetching events:', error);
     }
@@ -20,7 +20,7 @@ export async function sendData(path, data) {
 
     const returnData = await response.json(); // Trả về dữ liệu phản hồi
     hideLoading(); // Ẩn loading
-    return await JSON.parse(returnData);
+    return (returnData);
 }
 
 export function checkCookie(name) {

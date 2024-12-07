@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . "/../vendor/autoload.php";
 
+use app\controller\BookingController;
 use app\controller\EventController;
 use app\controller\CuisinesController;
 use app\controller\MiddleWare;
@@ -67,6 +68,10 @@ $app->router->get("/search", function() {
     echo Router::renderView("search");
 });
 
+$app->router->get('/booking', function () {
+    echo Router::renderView("booking");
+});
+
 // Đường dẫn cho API
 
 $app->router->get("/api/events", function () {
@@ -121,8 +126,6 @@ $app->router->get("/api/tours/search", function () {
     } else {
         $dateInclude = Request::getParam("date-include");
         $locationId = Request::getParam("location-id");
-//        var_dump($locationId);
-//        echo "Good job";
         $toursController->getTourForEvent($dateInclude, $locationId);
     }
 
@@ -150,6 +153,11 @@ $app->router->post("/api/sign-in", function() {
     $data = $request->getBody();
     $userController = new UserController();
     $userController->signIn($data);
+});
+
+$app->router->get('/api/users/bookings', function () {
+    $bookingController = new BookingController();
+    $bookingController->getBookingsForUser();
 });
 
 $app->run();

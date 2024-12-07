@@ -36,6 +36,6 @@ class UserModel
         $passwordHashed = md5($password);
         $sql = "SELECT * FROM {$this->table} WHERE email = '$email' AND password = '$passwordHashed'";
         $result = $this->db->query($sql);
-        return $result->fetchAll(PDO::FETCH_ASSOC);
+        return $result->fetch(PDO::FETCH_ASSOC);
     }
 }
