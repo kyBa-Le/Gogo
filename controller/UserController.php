@@ -74,7 +74,7 @@ class UserController
         $this->response->send();
     }
     public function getUser() {
-        $userId = $_SESSION['user']['id'];
+        $userId = $_SESSION['user'][0]['id'];
         $user = $this->userModel->getUserById($userId);
         $this->response = new Response(json_encode($user));
         $this->response->addHeader('Content-Type', 'application/json');
@@ -83,7 +83,7 @@ class UserController
 
     public function updateUser($data) {
         $responseMessage = [];
-        $userId = $_SESSION['user']['id'];
+        $userId = $_SESSION['user'][0]['id'];
         $username = $data['username'];
         $fullName = $data['fullName'];
         $email = $data['email'];
