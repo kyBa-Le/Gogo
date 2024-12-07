@@ -8,23 +8,28 @@ use PDO;
 class BookingModel
 {
     private $db;
-    private $table = 'booking';
+    private $table = 'bookings';
 
     public function __construct() {
         $this->db = Application::$database;
     }
 
     public function getBookingsOfUser($userId) {
-        //todo: change the sql syntax after fix
-        $sql = "SELECT b.*, t.*
-                FROM $this->table AS b
-                JOIN tours AS t ON b.tour_id = t.id 
-                WHERE b.user_id = $userId";
+        $sql = "SELECT {$this->table}.*,
+                tours.name as tour_name,
+                tours.image_url as tour_image_url,
+                tours.id as tour_id,
+                tours.description as tour_description,
+                tours.started_date as tour_start_date,
+                tours.completed_date as tour_completed_date,
+                tours.cultural_location_id as tour_location_id
+        FROM {$this->table} join tours on {$this->table}.tour_id = tours.id
+        WHERE bookings.user_id = '$userId'";
         $result = $this->db->query($sql);
-        $booking = [];
+        $bookings = [];
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            $booking[] = $row;
+            $bookings[] = $row;
         }
-        return $booking;
+        return $bookings;
     }
 }

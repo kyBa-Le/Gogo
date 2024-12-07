@@ -13,7 +13,9 @@ class BookingController
         $this->model = new BookingModel();
     }
 
-    public function getBookingsForUser() {
+    public function getBookingsForUser(): void
+    {
+        session_start();
         $userId = $_SESSION['user']['id'];
         $bookings = $this->model->getBookingsOfUser($userId);
         $this->response = new Response(json_encode($bookings));

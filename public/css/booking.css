@@ -4,6 +4,10 @@
 }
 .main-content .booked-item{
     margin-bottom: 5vh;
+    display: grid;
+    grid-template-columns: 30% 65%;
+    column-gap: 5%;
+    place-items: center;
 }
 #side-bar {
     height: 70vh;
@@ -29,4 +33,13 @@
 #detail-booking {
     width: 90%;
     height: auto;
+}
+#item-img {
+    margin: 5px;
+    width: 100%;
+    height: auto;
+}
+
+.information {
+    justify-self: start;
 }

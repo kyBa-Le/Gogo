@@ -20,27 +20,10 @@
         <div class="side-bar" id="side-bar">
             <h2>Detailed information</h2>
             <div id="detailed-info">
-                <p>There is no booking selected</p>
-                <img id="detail-booking" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdVbOF_W54QbangrguqovUrJ_DUebJw3C9ZQ&s">
-                <p></p>
-                <p>Tour name: Tour gì đó?</p>
-                <p>Started date: Ngày bao nhiêu đó</p>
-                <p>End date: Ngày bao nhiêu đó</p>
-                <p>Location: Ở đâu đó</p>
-                <p>Status: Đã đi hay chưa</p>
-                <p>Description: Tour này làm cái đéo gì đó không biết</p>
-                <p>Total cost: <span style="color: red">cỡ 1 triệu</span>
+                <p style="margin-top: 50%; font-style: italic">There is no booking selected</p>
             </div>
         </div>
         <div class="main-content" id="main-content">
-            <div class="container-fluid booked-item" data-location-id="locationId" data-booking-id="bookingId">
-                <img src="destination.img">
-                <div class="information">
-                    <p>Destination name</p>
-                    <p>Booking date</p>
-                    <p>Total cost - Status</p>
-                </div>
-            </div>
         </div>
     </div>
     <div class="pt-lg-5"></div>

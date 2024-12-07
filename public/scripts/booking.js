@@ -1,44 +1,47 @@
 import {fetchData} from "./main.js";
 
-let bookingsAndTours = await fetchData('/api/user/bookings');
-
-for (let i = 0; i <5 ; i++) {
-    document.getElementById('main-content').innerHTML += `<div class="container-fluid booked-item">
-                <img src="destination.img">
-                <div class="information">
-                    <p>Tour name</p>
-                    <p>Booking date</p>
-                    <p>Total cost - Status</p>
-                </div>
-            </div>`
-}
-
+let bookingsAndTours = await fetchData('/api/users/bookings');
 function renderBookings(bookingsAndTours) {
     for (let i = 0; i<bookingsAndTours.length; i++) {
         let bookingAndTour = bookingsAndTours[i];
-        document.getElementById('main-content').innerHTML += `<div onclick="renderDetails(${bookingAndTour})" class="container-fluid booked-item" 
-                data-tourId="${bookingAndTour['tour_id']}">
-                <img src="destination.img">
+        let id = bookingAndTour['id'];
+        document.getElementById('main-content').innerHTML += `<div data-id="${bookingAndTour['id']}" id="item-${bookingAndTour['id']}" class="container-fluid booked-item" 
+                data-tourId="${bookingAndTour['tour_id']}" data-tour-description="${bookingAndTour['tour_description']}"
+                data-tour-name="${bookingAndTour['tour_name']}" data-started-date="${bookingAndTour['tour_start_date']}" 
+                data-completed-date="${bookingAndTour['tour_completed_date']}" data-status="${bookingAndTour['status']}" 
+                data-total-cost=${bookingAndTour['total_cost']}" 
+                data-location-id="${bookingAndTour['tour_location_id']}"
+                data-tour-image="${bookingAndTour['tour_image_url']}">
+                <img id="item-img" src="${bookingAndTour['tour_image_url']}">
                 <div class="information">
-                    <p>${bookingAndTour['tour_name']}</p>
-                    <p>${bookingAndTour['booking_date']}</p>
-                    <p>${bookingAndTour['total_cost']} - ${bookingAndTour['status']}</p>
+                    <p style="font-weight: bold">Tour: ${bookingAndTour['tour_name']}</p>
+                    <p>Booking date: ${bookingAndTour['booking_date']}</p>
+                    <p>Price: ${bookingAndTour['total_cost']}đ - ${bookingAndTour['status']}</p>
                 </div>
             </div>`
     }
 }
 
-async function renderDetails(bookingAndTour) {
-    let location = await fetchData('/api/cultures/' + bookingAndTour['location_id']);
+await renderBookings(bookingsAndTours);
+async function renderDetails(id) {
+    console.log('id in render detail:' + id);
+    let item = document.getElementById('item-' + id);
+    let locationId = parseInt(item.dataset.locationId);
+    let location = await fetchData('/api/cultural_locations/' + locationId);
     document.getElementById('detailed-info').innerHTML = `
-        <img id="detail-booking" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdVbOF_W54QbangrguqovUrJ_DUebJw3C9ZQ&s">
+        <img id="detail-booking" src="${item.dataset.tourImage}">
         <p></p>
-        <p>Tour name: ${bookingAndTour['tour_name']}</p>
-        <p>Started date: ${bookingAndTour['started_date']}</p>
-        <p>End date: ${bookingAndTour['completed_date']}</p>
+        <p>Tour name: ${item.dataset.tourName}</p>
+        <p>Started date: ${item.dataset.startedDate}</p>
+        <p>End date: ${item.dataset.completedDate}</p>
         <p>Location: ${location['name']}</p>
-        <p>Status: ${bookingAndTour['status']}</p>
-        <p>Description: ${bookingAndTour['description']}</p>
-        <p>Total cost: <span style="color: red">${bookingAndTour['total_cost']}</span>
+        <p>Status: ${item.dataset.status}</p>
+        <p>Description: ${item.dataset.tourDescription}</p>
+        <p>Total cost: <span style="color: red">${item.dataset.totalCost}</span>
     `;
 }
+document.querySelectorAll('.booked-item').forEach(tour => {
+    tour.addEventListener('click', async () => {
+        await renderDetails(tour.dataset.id);
+    });
+});

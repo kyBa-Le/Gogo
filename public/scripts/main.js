@@ -20,7 +20,7 @@ export async function sendData(path, data) {
 
     const returnData = await response.json(); // Trả về dữ liệu phản hồi
     hideLoading(); // Ẩn loading
-    return await JSON.parse(returnData);
+    return (returnData);
 }
 
 export function checkCookie(name) {
