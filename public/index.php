@@ -67,8 +67,11 @@ $app->router->get("/search", function() {
     echo Router::renderView("search");
 });
 
-// Đường dẫn cho API
+$app->router->get("/profile", function() {
+    echo Router::renderView("profile");
+});
 
+// Đường dẫn cho API
 $app->router->get("/api/events", function () {
     $eventController = new EventController();
     $eventController->getEvents();
@@ -125,7 +128,6 @@ $app->router->get("/api/tours/search", function () {
 //        echo "Good job";
         $toursController->getTourForEvent($dateInclude, $locationId);
     }
-
 });
 
 $app->router->get("/api/tours/filter", function () {
@@ -152,4 +154,15 @@ $app->router->post("/api/sign-in", function() {
     $userController->signIn($data);
 });
 
+$app->router->get('/api/user', function () {
+    $userController = new UserController();
+    $userController->getUser();
+});
+
+$app->router->post('/api/users/update', function () {
+    $request = new Request();
+    $data = $request->getBody();
+    $userController = new UserController();
+    $userController->updateUser($data);
+});
 $app->run();

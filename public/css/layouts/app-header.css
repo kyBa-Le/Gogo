@@ -22,7 +22,7 @@
 
 .account {
   position: relative;
-  display: inline-block;
+  padding-right: 145px;
   cursor: pointer;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .user-avatar:hover {
-  color: #007BFF;
+  color: var(--primary-color);
 }
 
 .dropdown-menu {
