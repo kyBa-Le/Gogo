@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <?php require_once 'view/components/header.php' ?>
     <div class="profile-container">
         <div class="profile-header">
             <h1>My Profile</h1>

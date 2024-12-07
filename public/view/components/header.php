@@ -37,9 +37,9 @@
             <i class="fas fa-user-circle user-avatar" id="user-avatar"></i>
             <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
                 <ul>
-                    <li onclick="viewProfile()"><a href="/profile">View Profile</a></li>
-                    <li onclick="historyTour()">History Tour</li>
-                    <li onclick="logout()">Logout</li>
+                    <li onclick="{window.location.href = '/profile'}">View Profile</a></li>
+                    <li onclick="{window.location.href = '/booking'}">History Tour</li>
+                    <li onclick="{window.location.href = '/logout'}">Logout</li>
                 </ul>
             </div>
         </div>

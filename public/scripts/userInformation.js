@@ -142,7 +142,7 @@ async function renderUserCard() {
     document
       .getElementById("history-btn")
       .addEventListener("click", function () {
-        alert("Viewing booking history...");
+        window.location.href = '/booking';
       });
   }
 }
