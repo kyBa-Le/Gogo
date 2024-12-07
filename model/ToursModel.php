@@ -101,4 +101,11 @@ class ToursModel
         return $this->getToursByCriteria(['date_include' => $dateInclude, 'location_id' => $locationId]);
     }
 
+    public function getTourById($id)
+    {
+        $sql = 'SELECT * FROM ' . $this->table . ' WHERE id =' . $id;
+        $result = $this->db->query($sql);
+        return $result->fetch(PDO::FETCH_ASSOC);
+    }
+
 }

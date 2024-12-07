@@ -72,6 +72,14 @@ $app->router->get('/booking', function () {
     echo Router::renderView("booking");
 });
 
+$app->router->get("/tours/{id}", function() {
+    echo Router::renderView("tourDetails");
+});
+
+$app->router->get('/licence', function () {
+    echo Router::renderView("licence");
+});
+
 // Đường dẫn cho API
 
 $app->router->get("/api/events", function () {
@@ -126,6 +134,8 @@ $app->router->get("/api/tours/search", function () {
     } else {
         $dateInclude = Request::getParam("date-include");
         $locationId = Request::getParam("location-id");
+//        var_dump($locationId);
+//        echo "Good job";
         $toursController->getTourForEvent($dateInclude, $locationId);
     }
 
@@ -158,6 +168,11 @@ $app->router->post("/api/sign-in", function() {
 $app->router->get('/api/users/bookings', function () {
     $bookingController = new BookingController();
     $bookingController->getBookingsForUser();
+});
+
+$app->router->get('/api/tours/{id}', function ($id) {
+    $tourController = new ToursController();
+    $tourController->getTourById($id);
 });
 
 $app->run();
