@@ -26,10 +26,11 @@ class MiddleWare
     {
         $isLoggedIn = ['isSignedIn' => self::isSignedIn()];
         if ($isLoggedIn) {
-            $this->response = new Response($isLoggedIn);
+            $this->response = new Response(json_encode($isLoggedIn));
         } else {
-            $this->response = new Response($isLoggedIn, 401);
+            $this->response = new Response(json_encode ($isLoggedIn), 401);
         }
+        $this->response->addHeader('Content-Type', 'application/json');
         $this->response->send();
     }
 }

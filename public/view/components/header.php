@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <header class="app-header">
     <div class="app-container header-content">
         <!-- Logo -->
@@ -32,27 +33,16 @@
               window.location.href = '/sign-up';
             }">Sign up</button>
         </div>
+        <div class="account" id="accountSection" style="display: none;">
+            <i class="fas fa-user-circle user-avatar" id="user-avatar"></i>
+            <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
+                <ul>
+                    <li onclick="viewProfile()">View Profile</li>
+                    <li onclick="logout()">Logout</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <script>
-        const input = document.getElementById('search-bar');
-        let isFocused = false;
-
-        input.addEventListener('focus', () => {
-            isFocused = true;
-            console.log("Ô input đang được nhấn vào!");
-        });
-
-        input.addEventListener('keydown', (event) => {
-            if (isFocused && event.key === 'Enter') {
-                console.log("Phím Enter được nhấn ngay sau khi focus!");
-                const location = input.value; 
-                console.log("Giá trị hiện tại:", location);
-                window.location.href = "/search?location=" + encodeURIComponent(location);
-            }
-        });
-
-        input.addEventListener('blur', () => {
-            isFocused = false;
-        });
+    <script src="../../scripts/header.js" type="module">
     </script>
 </header>
