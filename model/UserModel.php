@@ -38,4 +38,15 @@ class UserModel
         $result = $this->db->query($sql);
         return $result->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function updateUser($username, $fullName, $email, $phone, $id) {
+        $sql = "UPDATE {$this->table} SET username = '$username', fullname = '$fullName', email = '$email', phone = '$phone' WHERE id = '$id'";
+        $this->db->query($sql);
+    }
+
+    public function getUserById ($id) {
+        $sql = "SELECT * FROM {$this->table} WHERE id = '$id'";
+        $result = $this->db->query($sql);
+        return $result->fetchAll(PDO::FETCH_ASSOC); 
+    }
 }
