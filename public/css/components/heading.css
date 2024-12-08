@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.heading {
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+}
+
+.heading .heading-title {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.heading-section {
+    max-width: 600px;
+    gap: 5px;
+}
+
+.heading-section .heading-title {
+    justify-content: center;
+    font-family: "Sacramento", cursive;
+    font-weight: 400;
+    font-size: 50px;
+}

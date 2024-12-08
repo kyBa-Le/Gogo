@@ -1,0 +1,94 @@
+.banner {
+    background-size: cover;
+    background-position: center;
+    height: 650px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.banner:hover .banner-overlay {
+    background-color: rgba(0, 0, 0, 0.3); 
+    transform: scale(1.05); 
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+    font-size: 30px;
+    transition: transform 0.3s ease, opacity 0.3s ease; 
+}
+
+.banner:hover .banner-content {
+    transform: translateY(-10px);
+    opacity: 1; 
+}
+
+.banner-content .title {
+    font-size: 100px;
+}
+
+.description-section {
+    padding: 2rem;
+    line-height: 1.6;
+}
+
+.culture-description {
+    margin-block: 50px;
+}
+
+#culture-description {
+    width: 90vw;
+    align-items: center;
+}
+
+#culture-description * {
+    margin-left: 10%;
+    width: 80%;
+    line-height: 50px;
+}
+
+#culture-container {
+    position: relative;
+}
+
+#booking-section {
+    background-color: #EB662B;
+    height: 20vh;
+    border-radius: 20px;
+    margin-bottom: 100px;
+    align-items: center !important;
+}
+
+#culture-book-now {
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid white;
+    color: #EB662B;
+    margin-right: 50px;
+}
+
+.message {
+    margin-left: 50px;
+}
+
+#culture-book-now:hover {
+    color: white;
+    background-color: #EB662B;
+    font-weight: bold;
+}

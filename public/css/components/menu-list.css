@@ -1,0 +1,14 @@
+.custom-menu-list {
+  display: flex;
+  gap: var(--spacing-md);
+}
+.custom-menu-list a {
+  text-decoration: none;
+  color: var(--text-color-pimary);
+}
+.custom-menu-list .custom-menu-item {
+  font-size: var(--font-size-sm);
+  line-height: 28px;
+  list-style-type: none;
+}
+

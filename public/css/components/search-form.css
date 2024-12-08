@@ -1,0 +1,49 @@
+.custom-search-form .custom-search-input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    
+}
+
+.search-input::placeholder {
+    color: var(--text-color-primary);
+    opacity: 0.5;
+}
+.footer-newsletter-input {
+    min-width: 300px;
+    min-height: 60px;
+    border-radius: 12px;
+    border: none;
+
+}
+
+.input-container {
+    position: relative;
+    width: 100%; 
+    max-width: 400px; 
+}
+
+/* search form hero section */
+input[type="checkbox"] {
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 12px;
+    border: solid 1px var(--default-color);
+    opacity: 0.75;
+}
+
+.search-container .search-input, 
+.search-container .search-select {
+    border: none;
+    outline: none;
+    font-size: var(--font-size-sm);
+    background-color: transparent;
+}
+
+.search-container {
+    width: fit-content;
+    margin: auto;
+}
+
+
+

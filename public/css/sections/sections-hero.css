@@ -1,0 +1,59 @@
+.hero-section {
+    position: relative;
+    height:702px;
+    background-image: url('../../assets/images/banner.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    color: var(--text-color-secondary); 
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-title {
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-description {
+    font-size: var(--font-size-md); 
+    margin-bottom: var(--spacing-md); 
+}
+
+.hero-search-form {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    gap: var(--spacing-sm); 
+    padding: 10px 20px;
+    background-color: var(--light-color); 
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+.price-search,
+.when-search {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    gap: 5px; 
+}
+
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+    color: var(--text-color-primary);
+}
+
+
+
+
+
+
