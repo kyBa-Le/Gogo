@@ -68,6 +68,9 @@ create table bookings (
    tour_id INT,
    booking_date DATE,
    total_cost INT,
+   user_email varchar(255),
+   full_name varchar(255),
+   phone varchar(10),
    status NVARCHAR(255),
    CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id),
    CONSTRAINT fk_tour FOREIGN KEY (tour_id) REFERENCES tours(id)
