@@ -2,7 +2,7 @@ async function fetchCulturalLocations() {
     try {
         const response = await fetch("/api/cultural_locations");
         const data = await response.json();
-        return JSON.parse(data);
+        return (data);
     } catch (error) {
         console.error('Error fetching cultural locations:', error);
     }

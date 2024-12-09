@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . "/../vendor/autoload.php";
 
+use app\controller\BookingController;
 use app\controller\EventController;
 use app\controller\CuisinesController;
 use app\controller\MiddleWare;
@@ -47,24 +48,40 @@ $app->router->get('/events/{id}', function () {
     echo Router::renderView("eventDetail");
 });
 
-$app->router->get("/sign-up", function() {
+$app->router->get("/sign-up", function () {
     echo Router::renderView("signUp");
 });
 
-$app->router->get("/sign-in", function() {
+$app->router->get("/sign-in", function () {
     echo Router::renderView("signIn");
 });
 
-$app->router->get("/cultures", function() {
+$app->router->get("/cultures", function () {
     echo Router::renderView("culturalLocation");
 });
 
-$app->router->get("/cultural_locations/{id}", function() {
+$app->router->get("/cultural_locations/{id}", function () {
     echo Router::renderView("cultureDetail");
 });
 
-$app->router->get("/search", function() {
+$app->router->get("/search", function () {
     echo Router::renderView("search");
+});
+
+$app->router->get('/booking', function () {
+    echo Router::renderView("booking");
+});
+
+$app->router->get("/tours/{id}", function () {
+    echo Router::renderView("tourDetails");
+});
+
+$app->router->get('/licence', function () {
+    echo Router::renderView("licence");
+});
+
+$app->router->get('/checkout/{id}', function () {
+    echo Router::renderView("checkout");
 });
 
 // Đường dẫn cho API
@@ -96,7 +113,7 @@ $app->router->get("/api/events/search", function () {
     $eventController->getEventByMonthAndYear($month, $year);
 });
 
-$app->router->post("/api/sign-up", function() {
+$app->router->post("/api/sign-up", function () {
     $request = new Request();
     $data = $request->getBody();
     $userController = new UserController();
@@ -116,16 +133,15 @@ $app->router->get('/api/is-signed-in', function () {
 $app->router->get("/api/tours/search", function () {
     $location = Request::getParam("location");
     $toursController = new ToursController();
-    if($location !== null) {
+    if ($location !== null) {
         $toursController->getToursByLocation($location);
     } else {
         $dateInclude = Request::getParam("date-include");
         $locationId = Request::getParam("location-id");
-//        var_dump($locationId);
-//        echo "Good job";
+        //        var_dump($locationId);
+        //        echo "Good job";
         $toursController->getTourForEvent($dateInclude, $locationId);
     }
-
 });
 
 $app->router->get("/api/tours/filter", function () {
@@ -135,21 +151,36 @@ $app->router->get("/api/tours/filter", function () {
     $toursController->filterTours($price, $date);
 });
 
-$app->router->get("/api/cultural_locations", function() {
+$app->router->get("/api/cultural_locations", function () {
     $culturalLocationController = new CulturalLocationController();
     $culturalLocationController->getCulturalLocations();
 });
 
-$app->router->get("/api/cultural_locations/{id}", function($id) {
+$app->router->get("/api/cultural_locations/{id}", function ($id) {
     $culturalLocationController = new CulturalLocationController();
     $culturalLocationController->getCulturalLocationById($id);
 });
 
-$app->router->post("/api/sign-in", function() {
+$app->router->post("/api/sign-in", function () {
     $request = new Request();
     $data = $request->getBody();
     $userController = new UserController();
     $userController->signIn($data);
+});
+
+$app->router->get('/api/users/bookings', function () {
+    $bookingController = new BookingController();
+    $bookingController->getBookingsForUser();
+});
+
+$app->router->get('/api/tours/{id}', function ($id) {
+    $tourController = new ToursController();
+    $tourController->getTourById($id);
+});
+
+$app->router->get('/api/checkout/{id}', function ($id) {
+    $tourController = new ToursController();
+    $tourController->getTourById($id);
 });
 
 $app->run();

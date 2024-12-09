@@ -1,0 +1,45 @@
+#booking-info-container {
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
+}
+.main-content .booked-item{
+    margin-bottom: 5vh;
+    display: grid;
+    grid-template-columns: 30% 65%;
+    column-gap: 5%;
+    place-items: center;
+}
+#side-bar {
+    height: 70vh;
+    overflow: scroll;
+}
+.main-content {
+    height: 70vh;
+    overflow: scroll;
+    border: 1px solid #EB662B;
+    box-sizing: border-box;
+    padding: 1vw;
+    background-color: #FBFBEC;
+}
+.booked-item {
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    background-color: white;
+}
+.booked-item:hover{
+    cursor: pointer;
+}
+#detail-booking {
+    width: 90%;
+    height: auto;
+}
+#item-img {
+    margin: 5px;
+    width: 100%;
+    height: auto;
+}
+
+.information {
+    justify-self: start;
+}
