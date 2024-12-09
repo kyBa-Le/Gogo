@@ -183,23 +183,21 @@
         <!-- Booking Form -->
         <div class="form-container">
             <h2>Book a Tour</h2>
-            <form action="process_booking.php" method="post">
+            <form action="/api/checkout" method="post">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required>
                 </div>
-
                 <div class="form-group">
                     <label for="fullname">Full Name</label>
                     <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" maxlength="50" required>
                 </div>
-
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
                     <input type="tel" id="phone" name="phone" pattern="[0-9]{10,15}" placeholder="Enter your phone number" required>
                 </div>
-
-                <button type="submit" class="submit-btn">Submit</button>
+                <input type="number" name="totalCost" id="totalCost" style="display: none">
+                <button type="submit" class="submit-btn" name="tour_id" value="" id='submit-btn'>Submit</button>
             </form>
         </div>
 
@@ -207,18 +205,6 @@
         <div class="tour-info">
             <h2>Tour Details</h2>
             <div class="tour-card" id="tour-card">
-                <!-- <img src="tour-image.jpg" alt="Tour Image">
-                        <h3>Tour Name</h3>
-                        <p><strong>Description:</strong> Explore beautiful landscapes and rich culture.</p>
-                        <div class="row">
-                            <p><strong>Start Date:</strong> 2024-12-10</p>
-                            <p><strong>End Date:</strong> 2024-12-20</p>
-                        </div>
-                        <div class="row">
-                            <p><strong>Price:</strong> $500</p>
-                            <p><strong>Organizer:</strong> Best Travel Co.</p>
-                        </div>
-                        <p><strong>Schedule:</strong> Daily visits to cultural sites and attractions.</p> -->
             </div>
         </div>
     </div>

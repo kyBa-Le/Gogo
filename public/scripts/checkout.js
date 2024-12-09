@@ -1,10 +1,11 @@
 import { fetchData } from "./main.js";
 
 const apiPath = "/api" + window.location.pathname;
-console.log(apiPath)
 
 let tour = await fetchData(apiPath);
-console.log(tour);
+let user = await fetchData('/api/user');
+document.getElementById('submit-btn').value = tour['id'];
+document.getElementById('totalCost').value = tour['price'];
 
 // Populate Tour Information
 document.getElementById('tour-card').innerHTML =  
@@ -21,5 +22,16 @@ document.getElementById('tour-card').innerHTML =
     </div>
     <p><strong>Schedule:</strong> ${tour["schedule"]}</p>
     `;
-
+if (user !== false) {
+    document.getElementById('email').value = user['email'];
+    document.getElementById('fullname').value = user['fullname'];
+    document.getElementById('phone').value = user['phone'];
+} else {
+    if (window.confirm("Please login before book tour!")) {
+        window.location.href = '/sign-in';
+    }
+    else {
+        window.location.href = '/';
+    }
+}
 

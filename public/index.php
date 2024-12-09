@@ -141,8 +141,6 @@ $app->router->get("/api/tours/search", function () {
     } else {
         $dateInclude = Request::getParam("date-include");
         $locationId = Request::getParam("location-id");
-        //        var_dump($locationId);
-        //        echo "Good job";
         $toursController->getTourForEvent($dateInclude, $locationId);
     }
 });
@@ -197,4 +195,13 @@ $app->router->post('/api/users/update', function () {
     $userController = new UserController();
     $userController->updateUser($data);
 });
+
+$app->router->post('/api/checkout', function () {
+    $request = new Request();
+    $data = $request->getBody();
+    $bookingController = new BookingController();
+    $bookingController->createBooking($data);
+
+});
+
 $app->run();
