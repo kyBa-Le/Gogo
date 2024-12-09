@@ -5,6 +5,8 @@ namespace app\controller;
 use app\core\Response;
 use app\model\BookingModel;
 use app\model\UserModel;
+use app\thirdPartiesService\BookingEmail;
+use app\thirdPartiesService\EmailSender;
 
 class BookingController
 {
@@ -33,5 +35,14 @@ class BookingController
         $tourId = $data['tour_id'];
         $totalCost = $data['totalCost'];
         $this->model->saveBooking($userId, $email, $phone, $fullname, $tourId, $totalCost);
+        $email = new BookingEmail($_SESSION['user']['username']);
+        $emailSender = new EmailSender();
+        $emailSender->sendEmail(
+            $data['email'],
+            $data['fullname'],
+            $email->subject,
+            $email->emailContent );
+
+        header('Location: /payment-success');
     }
 }

@@ -87,6 +87,10 @@ $app->router->get("/profile", function () {
 $app->router->get('/checkout/{id}', function () {
     echo Router::renderView("checkout");
 });
+
+$app->router->get('/payment-success', function () {
+    echo Router::renderView("paymentSucess");
+});
 // Đường dẫn cho API
 
 $app->router->get("/api/events", function () {
