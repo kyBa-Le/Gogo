@@ -73,4 +73,27 @@ class UserController
         $this->response->addHeader('Content-Type', 'application/json');
         $this->response->send();
     }
+    public function getUser() {
+        $userId = $_SESSION['user'][0]['id'];
+        $user = $this->userModel->getUserById($userId);
+        $this->response = new Response(json_encode($user));
+        $this->response->addHeader('Content-Type', 'application/json');
+        $this->response->send();
+    }
+
+    public function updateUser($data) {
+        $responseMessage = [];
+        $userId = $_SESSION['user'][0]['id'];
+        $username = $data['username'];
+        $fullName = $data['fullName'];
+        $email = $data['email'];
+        $phone = $data['phone'];
+        $this->userModel->updateUser($username, $fullName, $email, $phone, $userId);
+        $responseMessage['success'] = true;
+        $responseMessage['message'] = "User updated";
+        
+        $this->response = new Response(json_encode($responseMessage));
+        $this->response->addHeader('Content-Type', 'application/json');
+        $this->response->send();
+    } 
 }

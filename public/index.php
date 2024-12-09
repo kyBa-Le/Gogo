@@ -80,10 +80,13 @@ $app->router->get('/licence', function () {
     echo Router::renderView("licence");
 });
 
+$app->router->get("/profile", function () {
+    echo Router::renderView("profile");
+});
+
 $app->router->get('/checkout/{id}', function () {
     echo Router::renderView("checkout");
 });
-
 // Đường dẫn cho API
 
 $app->router->get("/api/events", function () {
@@ -183,4 +186,15 @@ $app->router->get('/api/checkout/{id}', function ($id) {
     $tourController->getTourById($id);
 });
 
+$app->router->get('/api/user', function () {
+    $userController = new UserController();
+    $userController->getUser();
+});
+
+$app->router->post('/api/users/update', function () {
+    $request = new Request();
+    $data = $request->getBody();
+    $userController = new UserController();
+    $userController->updateUser($data);
+});
 $app->run();

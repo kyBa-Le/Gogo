@@ -22,10 +22,6 @@
     <div class="d-flex justify-content-start">
         <img id="home-button" src="assets/images/logo.png" alt="Gogo" onclick="window.location.href='/'">
     </div>
-    <div class="container">
-        <h1 class="text-center" style="color: white">Welcome to Gogo travelling</h1>
-        <h4 class="text-center" style="font-family: 'Great Vibes', cursive; color: white /* Font chữ mềm mại hơn */">Your trust is our greatest honor</h4>
-    </div>
     <div class="form-container text-center" id="form-container">
         <h1 style="color: #EB662B">Please sign in to book tour</h1>
         <form class="text-center" id="signIn-form">

@@ -45,4 +45,8 @@ class UserValidation
         // Trả về mảng lỗi (nếu có)
         return $errors;
     }
+
+    public function updataValidation ($requestUpdate) {
+        
+    }
 }

@@ -14,7 +14,7 @@
                     <ul class="footer-section-list">
                         <li class="footer-section-item"><a href="#" class="footer-link">About Us</a></li>
                         <li class="footer-section-item"><a href="#" class="footer-link">Tourz Reviews</a></li>
-                        <li class="footer-section-item"><a href="#" class="footer-link">Contact Us</a></li>
+                        <li class="footer-section-item"><a href="/licence" class="footer-link">Licence</a></li>
                         <li class="footer-section-item"><a href="#" class="footer-link">Travel Guides</a></li>
                         <li class="footer-section-item"><a href="#" class="footer-link">Data Policy</a></li>
                         <li class="footer-section-item"><a href="#" class="footer-link">Cookie Policy</a></li>

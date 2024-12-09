@@ -36,6 +36,3 @@ if (action) {
 }
 let tours = await fetchData(api);
 loadTours(tours);
-
-
-
