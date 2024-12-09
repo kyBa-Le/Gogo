@@ -39,7 +39,7 @@
                 <ul>
                     <li onclick="{window.location.href = '/profile'}">View Profile</a></li>
                     <li onclick="{window.location.href = '/booking'}">History Tour</li>
-                    <li onclick="{window.location.href = '/logout'}">Logout</li>
+                    <li onclick="{window.location.href = '/api/logout'}">Logout</li>
                 </ul>
             </div>
         </div>

@@ -204,4 +204,10 @@ $app->router->post('/api/checkout', function () {
 
 });
 
+$app->router->get('/api/logout' , function () {
+    session_start();
+    session_destroy();
+    header("Location: /");
+});
+
 $app->run();
