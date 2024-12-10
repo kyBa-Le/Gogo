@@ -4,8 +4,9 @@ const apiPath = "/api" + window.location.pathname;
 
 let tour = await fetchData(apiPath);
 let user = await fetchData('/api/user');
-document.getElementById('submit-btn').value = tour['id'];
+document.getElementById('tourId').value = tour['id'];
 document.getElementById('totalCost').value = tour['price'];
+document.getElementById('tourName').value = tour['name'];
 
 // Populate Tour Information
 document.getElementById('tour-card').innerHTML =  

@@ -87,6 +87,7 @@
             cursor: pointer;
             text-transform: uppercase;
             transition: all 0.3s ease;
+            margin-bottom: 5px;
         }
 
         .submit-btn:hover {
@@ -183,7 +184,7 @@
         <!-- Booking Form -->
         <div class="form-container">
             <h2>Book a Tour</h2>
-            <form action="/api/checkout" method="post">
+            <form action="/pay" method="post">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required>
@@ -197,9 +198,14 @@
                     <input type="tel" id="phone" name="phone" pattern="[0-9]{10,15}" placeholder="Enter your phone number" required>
                 </div>
                 <input type="number" name="totalCost" id="totalCost" style="display: none">
-                <button type="submit" class="submit-btn" name="tour_id" value="" id='submit-btn'>Submit</button>
+                <input type="text" name="tour_name" id="tourName" style="display: none">
+                <input type="text" name="tour_id" id="tourId" style="display: none">
+                <button style="display: none" type="submit" class="submit-btn">Submit</button>
+                <button type="submit" class="submit-btn" name="payUrl">Pay now</button>
             </form>
+
         </div>
+
 
         <!-- Tour Information -->
         <div class="tour-info">

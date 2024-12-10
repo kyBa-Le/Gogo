@@ -28,6 +28,7 @@ class BookingController
 
     public function createBooking($data) {
         session_start();
+        $data = $_SESSION['booking'];
         $userId = $_SESSION['user']['id'];
         $email = $data['email'];
         $phone = $data['phone'];
@@ -42,7 +43,7 @@ class BookingController
             $data['fullname'],
             $email->subject,
             $email->emailContent );
-
+        unset($_SESSION['booking']);
         header('Location: /payment-success');
     }
 }
