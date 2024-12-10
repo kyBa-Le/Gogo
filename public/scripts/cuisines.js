@@ -16,7 +16,7 @@ function renderCuisineCard(cuisine) {
             <h4 class="cuisine-name">${cuisine.name}</h4>
             <p class="cuisine-description">${cuisine.description}</p>
             <p class="cuisine-location">Location ID: ${cuisine.location_id}</p>
-            <a href="/cuisines/${cuisine.id}" class="cuisine-link">View Details</a>
+            <a href="/cultural_locations/${cuisine.location_id}" class="cuisine-link">View destination</a>
         </div>`;
 }
 

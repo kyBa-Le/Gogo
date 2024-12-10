@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div class="header-include">
+<div class="header-include">
     <?php include 'components/header.php'; ?>
-    </div>
-        <div class="tour-cards" id="tour-card">
-        </div>  
-    <script src="../scripts/tours.js" type="module"></script>
+</div>
+<div class="tour-cards" id="tour-card">
+</div>
+<script src="../scripts/tours.js" type="module"></script>
 </body>
 </html>
