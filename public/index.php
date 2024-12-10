@@ -230,4 +230,11 @@ $app->router->get('/api/logout' , function () {
     header("Location: /");
 });
 
+$app->router->get('/api/cuisines/location', function () {
+    $request = new Request();
+    $locationId = Request::getParam("location-id");
+    $cuisinesController = new CuisinesController();
+    $cuisinesController->getCuisinesByLocationId($locationId);
+});
+
 $app->run();

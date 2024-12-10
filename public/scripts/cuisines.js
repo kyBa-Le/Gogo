@@ -9,7 +9,7 @@ async function fetchCuisines() {
 }
 
 let cuisines = await fetchCuisines();
-function renderCuisineCard(cuisine) {
+export function renderCuisineCard(cuisine) {
     document.getElementById('cuisine-cards').innerHTML +=
         `<div class="cuisine-card">
             <img src="${cuisine.image_url}" alt="${cuisine.name}" />

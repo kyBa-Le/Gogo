@@ -30,4 +30,16 @@ class CuisinesModel
         $result = $this->db->query($sql);
         return $result->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function getCuisinesByLocationId(int $locationId): array
+    {
+        $id = (int) $locationId;
+        $sql = "SELECT * FROM {$this->table} WHERE location_id = {$id}";
+        $result = $this->db->query($sql);
+        $cuisines = [];
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            $cuisines[] = $row;
+        }
+        return $cuisines;
+    }
 }
