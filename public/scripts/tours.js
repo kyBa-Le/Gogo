@@ -2,7 +2,7 @@ import { fetchData } from "./main.js";
 
 async function renderTourCard(tour) {
     document.getElementById("tour-card").innerHTML += `
-        <div class="tour-card">
+        <div class="tour">
             <img src="${tour.image_url}" alt="${tour.name}" />
             <div class="heading">
                 <h4 class="tour-name">${tour.name}</h4>
@@ -14,7 +14,7 @@ async function renderTourCard(tour) {
             </div>
             <p class="tour-price">Price: ${tour.price} VND</p>
             <p class="tour-location">${tour.location_name} - ${tour.region}</p>
-            <a href="/tours/${tour.id}" class="tour-link">View Details</a>
+            <a href="/tours/${tour.id}" class="tour-link">Booking Tour</a>
         </div>`;
 }
 
@@ -36,3 +36,5 @@ if (action) {
 }
 let tours = await fetchData(api);
 loadTours(tours);
+let allTours =await fetchData ("/api/tours");
+renderTourCard(allTours);
