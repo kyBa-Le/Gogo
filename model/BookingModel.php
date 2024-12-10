@@ -39,7 +39,7 @@ class BookingModel
     {
         $bookingDate = date("Y-m-d H:i:s");
         $sql = "INSERT INTO {$this->table} (user_id, tour_id,booking_date, total_cost, user_email, full_name, phone, status)
-                VALUES($userId, $tourId, '$bookingDate', $totalCost, '$email', '$fullname', '$phone', 'waiting')";
+                VALUES($userId, $tourId, '$bookingDate', $totalCost, '$email', '$fullname', '$phone', 'paid')";
         $this->db->query($sql);
     }
 }
