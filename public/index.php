@@ -78,7 +78,11 @@ $app->router->get('/booking', function () {
     echo Router::renderView("booking");
 });
 
-$app->router->get("/tours/{id}", function () {
+$app->router->get('/tours', function() {
+    echo Router::renderView(("tours"));
+});
+
+$app->router->get("/tours/{id}", function() {
     echo Router::renderView("tourDetails");
 });
 

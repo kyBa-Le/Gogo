@@ -21,6 +21,7 @@
             <ul class="custom-menu-list">
                 <li class="custom-menu-item"><a href="/">Home</a></li>
                 <li class="custom-menu-item" onclick="location.href='/events'">Event</li>
+                <li class="custom-menu-item" onclick="location.href='/tours'">Tour</li>
                 <li class="custom-menu-item" onclick="location.href='/cuisines'">Cuisine</li>
                 <li class="custom-menu-item" onclick="location.href='/cultures'">Culture</li>
             </ul>
