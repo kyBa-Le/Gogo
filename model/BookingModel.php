@@ -10,11 +10,13 @@ class BookingModel
     private $db;
     private $table = 'bookings';
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->db = Application::$database;
     }
 
-    public function getBookingsOfUser($userId) {
+    public function getBookingsOfUser($userId)
+    {
         $sql = "SELECT {$this->table}.*,
                 tours.name as tour_name,
                 tours.image_url as tour_image_url,
@@ -31,5 +33,13 @@ class BookingModel
             $bookings[] = $row;
         }
         return $bookings;
+    }
+
+    public function saveBooking($userId, $email, $phone, $fullname, $tourId, $totalCost)
+    {
+        $bookingDate = date("Y-m-d H:i:s");
+        $sql = "INSERT INTO {$this->table} (user_id, tour_id,booking_date, total_cost, user_email, full_name, phone, status)
+                VALUES($userId, $tourId, '$bookingDate', $totalCost, '$email', '$fullname', '$phone', 'waiting')";
+        $this->db->query($sql);
     }
 }

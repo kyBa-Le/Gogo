@@ -45,8 +45,9 @@ class UserModel
     }
 
     public function getUserById ($id) {
-        $sql = "SELECT * FROM {$this->table} WHERE id = '$id'";
+        $id = (int) $id;
+        $sql = "SELECT * FROM {$this->table} WHERE id = $id";
         $result = $this->db->query($sql);
-        return $result->fetchAll(PDO::FETCH_ASSOC); 
+        return $result->fetch(PDO::FETCH_ASSOC);
     }
 }

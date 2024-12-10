@@ -15,7 +15,6 @@
     <div class="profile-container">
         <div class="profile-header">
             <h1>My Profile</h1>
-            <button class="custom-btn custom-btn-primary profile">Save changes</button>
         </div>
         <div class="profile-content">
             <div class="info-container">

@@ -27,6 +27,7 @@
         </div>
     </div>
     <div class="pt-lg-5"></div>
+    <div class= result></div>
     <?php require_once 'view/components/footer.php' ?>
     <script src="scripts/booking.js" type="module"></script>
 </body>

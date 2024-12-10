@@ -13,4 +13,4 @@ document.getElementById('container-tour-information').innerHTML = `<h1>Tour info
             <p>Destination : ${location['name']} - ${location['region']}</p>
             <p>Description : ${tour['description']}</p>
             <p>Price : ${tour['price']} VND</p>
-            <div style="width: 100%" class="d-flex justify-content-end"><button onclick="function (){window.location.href=}" id="book-now">Book now</button></div>`;
+            <div style="width: 100%" class="d-flex justify-content-end"><button onclick="{window.location.href='/checkout/' + ${tour['id']}}" id="book-now">Book now</button></div>`;

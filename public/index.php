@@ -48,23 +48,23 @@ $app->router->get('/events/{id}', function () {
     echo Router::renderView("eventDetail");
 });
 
-$app->router->get("/sign-up", function() {
+$app->router->get("/sign-up", function () {
     echo Router::renderView("signUp");
 });
 
-$app->router->get("/sign-in", function() {
+$app->router->get("/sign-in", function () {
     echo Router::renderView("signIn");
 });
 
-$app->router->get("/cultures", function() {
+$app->router->get("/cultures", function () {
     echo Router::renderView("culturalLocation");
 });
 
-$app->router->get("/cultural_locations/{id}", function() {
+$app->router->get("/cultural_locations/{id}", function () {
     echo Router::renderView("cultureDetail");
 });
 
-$app->router->get("/search", function() {
+$app->router->get("/search", function () {
     echo Router::renderView("search");
 });
 
@@ -84,10 +84,17 @@ $app->router->get('/licence', function () {
     echo Router::renderView("licence");
 });
 
-$app->router->get("/profile", function() {
+$app->router->get("/profile", function () {
     echo Router::renderView("profile");
 });
 
+$app->router->get('/checkout/{id}', function () {
+    echo Router::renderView("checkout");
+});
+
+$app->router->get('/payment-success', function () {
+    echo Router::renderView("paymentSucess");
+});
 // Đường dẫn cho API
 
 $app->router->get("/api/events", function () {
@@ -117,7 +124,7 @@ $app->router->get("/api/events/search", function () {
     $eventController->getEventByMonthAndYear($month, $year);
 });
 
-$app->router->post("/api/sign-up", function() {
+$app->router->post("/api/sign-up", function () {
     $request = new Request();
     $data = $request->getBody();
     $userController = new UserController();
@@ -137,16 +144,13 @@ $app->router->get('/api/is-signed-in', function () {
 $app->router->get("/api/tours/search", function () {
     $location = Request::getParam("location");
     $toursController = new ToursController();
-    if($location !== null) {
+    if ($location !== null) {
         $toursController->getToursByLocation($location);
     } else {
         $dateInclude = Request::getParam("date-include");
         $locationId = Request::getParam("location-id");
-//        var_dump($locationId);
-//        echo "Good job";
         $toursController->getTourForEvent($dateInclude, $locationId);
     }
-
 });
 
 $app->router->get("/api/tours/filter", function () {
@@ -156,17 +160,17 @@ $app->router->get("/api/tours/filter", function () {
     $toursController->filterTours($price, $date);
 });
 
-$app->router->get("/api/cultural_locations", function() {
+$app->router->get("/api/cultural_locations", function () {
     $culturalLocationController = new CulturalLocationController();
     $culturalLocationController->getCulturalLocations();
 });
 
-$app->router->get("/api/cultural_locations/{id}", function($id) {
+$app->router->get("/api/cultural_locations/{id}", function ($id) {
     $culturalLocationController = new CulturalLocationController();
     $culturalLocationController->getCulturalLocationById($id);
 });
 
-$app->router->post("/api/sign-in", function() {
+$app->router->post("/api/sign-in", function () {
     $request = new Request();
     $data = $request->getBody();
     $userController = new UserController();
@@ -183,6 +187,11 @@ $app->router->get('/api/tours/{id}', function ($id) {
     $tourController->getTourById($id);
 });
 
+$app->router->get('/api/checkout/{id}', function ($id) {
+    $tourController = new ToursController();
+    $tourController->getTourById($id);
+});
+
 $app->router->get('/api/user', function () {
     $userController = new UserController();
     $userController->getUser();
@@ -194,4 +203,19 @@ $app->router->post('/api/users/update', function () {
     $userController = new UserController();
     $userController->updateUser($data);
 });
+
+$app->router->post('/api/checkout', function () {
+    $request = new Request();
+    $data = $request->getBody();
+    $bookingController = new BookingController();
+    $bookingController->createBooking($data);
+
+});
+
+$app->router->get('/api/logout' , function () {
+    session_start();
+    session_destroy();
+    header("Location: /");
+});
+
 $app->run();

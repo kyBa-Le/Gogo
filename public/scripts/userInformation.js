@@ -6,7 +6,7 @@ async function renderUserCard() {
   if (isSignedIn) {
     const user = await fetchData("/api/user");
     console.log(user);
-    const userInfo = user[0];
+    const userInfo = user;
 
     document.getElementById("contents").innerHTML = `
     <div class="user-info-item">

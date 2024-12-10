@@ -97,7 +97,8 @@ class ToursModel
         return $this->getToursByCriteria(['location' => $location]);
     }
 
-    public function getTourForEvent($dateInclude, $locationId) {
+    public function getTourForEvent($dateInclude, $locationId)
+    {
         return $this->getToursByCriteria(['date_include' => $dateInclude, 'location_id' => $locationId]);
     }
 
@@ -107,5 +108,4 @@ class ToursModel
         $result = $this->db->query($sql);
         return $result->fetch(PDO::FETCH_ASSOC);
     }
-
 }
