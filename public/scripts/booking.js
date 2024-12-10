@@ -37,7 +37,7 @@ async function renderDetails(id) {
         <p>Location: ${location['name']}</p>
         <p>Status: ${item.dataset.status}</p>
         <p>Description: ${item.dataset.tourDescription}</p>
-        <p>Total cost: <span style="color: red">${item.dataset.totalCost}</span>
+        <p>Total cost: <span style="color: red">${item.dataset.totalCost} VND</span>
     `;
 }
 document.querySelectorAll('.booked-item').forEach(tour => {

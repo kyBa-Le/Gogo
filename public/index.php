@@ -5,6 +5,7 @@ use app\controller\BookingController;
 use app\controller\EventController;
 use app\controller\CuisinesController;
 use app\controller\MiddleWare;
+use app\controller\MomoController;
 use app\controller\UserController;
 use app\controller\CulturalLocationController;
 use app\controller\ToursController;
@@ -22,6 +23,11 @@ $config = [
         'password' => $_ENV['DB_PASSWORD'],
     ]
 ];
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
 // remove $config in Application() if you want to run app without database connection
 $app = new Application($config);
@@ -94,6 +100,12 @@ $app->router->get('/checkout/{id}', function () {
 
 $app->router->get('/payment-success', function () {
     echo Router::renderView("paymentSucess");
+});
+$app->router->post('/pay', function () {
+    $request = new Request();
+    $data = $request->getBody();
+    $momoController = new MomoController();
+    $momoController->onlineCheckOut($data);
 });
 // Đường dẫn cho API
 
@@ -204,7 +216,7 @@ $app->router->post('/api/users/update', function () {
     $userController->updateUser($data);
 });
 
-$app->router->post('/api/checkout', function () {
+$app->router->get('/api/checkout', function () {
     $request = new Request();
     $data = $request->getBody();
     $bookingController = new BookingController();
